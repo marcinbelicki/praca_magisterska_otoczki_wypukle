@@ -1,6 +1,46 @@
-\documentclass[12pt]{article}
+\newcommand*{\includesDirectory}{includes}
+\newcommand*{\settingsDirectory}{\includesDirectory/settings}
 
+\include{\settingsDirectory/geometry}
+\include{\settingsDirectory/language}
+\include{\settingsDirectory/page_number}
+\include{\settingsDirectory/table_of_contents}
+\include{\settingsDirectory/chapters}
 \begin{document}
-    Hello world!
-    $Hello world$ %math mode 
+    \thispagestyle{empty}
+    \begin{center}
+        \Huge{Otoczki wypukłe}
+    \end{center}
+    \tableofcontents
+
+    \newcommand\intro{Wstęp}
+    
+    \chapter*{\intro}  
+    \addcontentsline{toc}{chapter}{\intro}      
+
+    \chapter{Rozdział pierwszy}
+        \section{Punkt pierwszy}
+            \subsection{Podpunkt pierwszy}
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            \subsection{Podpunkt drugi}
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            \subsection{Podpunkt trzeci}
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  
+        \section{Punkt drugi}
+            \subsection{Podpunkt pierwszy}
+            \subsection{Podpunkt drugi}
+            \subsection{Podpunkt trzeci}
+    \chapter{Rozdział drugi} 
+    \section{Punkt pierwszy}
+        \subsection{Podpunkt pierwszy}
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        \subsection{Podpunkt drugi}
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        \subsection{Podpunkt trzeci}
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  
+    \section{Punkt drugi}
+        \subsection{Podpunkt pierwszy}
+        \subsection{Podpunkt drugi}
+        \subsection{Podpunkt trzeci}
+
 \end{document}
