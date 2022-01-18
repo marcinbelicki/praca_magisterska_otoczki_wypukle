@@ -5,6 +5,10 @@
   {\normalfont\huge}{\thechapter\vspace{-13pt}\\}{0pt}{\Large}
 \titlespacing*{\chapter}{0pt}{0pt}{0pt}
 
+\newcommand{\chapterwithout}[1]{\chapter*{#1} 
+\addcontentsline{toc}{chapter}{#1}  
+}
+
 \titleformat{\section}[block]
   {\normalfont}
   {\makebox[0.5cm][l]{\thesection}}{10pt}{}
