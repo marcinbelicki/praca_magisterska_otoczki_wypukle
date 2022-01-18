@@ -6,41 +6,32 @@
 \include{\settingsDirectory/page_number}
 \include{\settingsDirectory/table_of_contents}
 \include{\settingsDirectory/chapters}
+
 \begin{document}
     \thispagestyle{empty}
     \begin{center}
         \Huge{Otoczki wypukłe}
     \end{center}
-    \tableofcontents
+    \tableofcontents				
 
     \newcommand\intro{Wstęp}
     
     \chapter*{\intro}  
     \addcontentsline{toc}{chapter}{\intro}      
 
-    \chapter{Rozdział pierwszy}
-        \section{Punkt pierwszy}
-            \subsection{Podpunkt pierwszy}
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            \subsection{Podpunkt drugi}
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            \subsection{Podpunkt trzeci}
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  
-        \section{Punkt drugi}
-            \subsection{Podpunkt pierwszy}
-            \subsection{Podpunkt drugi}
-            \subsection{Podpunkt trzeci}
-    \chapter{Rozdział drugi} 
-    \section{Punkt pierwszy}
-        \subsection{Podpunkt pierwszy}
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        \subsection{Podpunkt drugi}
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        \subsection{Podpunkt trzeci}
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.  
-    \section{Punkt drugi}
-        \subsection{Podpunkt pierwszy}
-        \subsection{Podpunkt drugi}
-        \subsection{Podpunkt trzeci}
-
+    \chapter{Omówienie teoretyczne otoczki wypukłej na płaszczyźnie}
+        \section{Otoczka wypukła zbioru punktów}
+        \section{Otoczka wypukła wielokąta prostego}
+        \section{Redukcja zbioru punktów do wielokąta prostego}  
+    \chapter{Zastosowania} 
+        \section{Generalizacja kartograficzna}
+		\section{Grafika komputerowa}
+		\section{Detekcja obiektów}
+        \section{Wyznaczanie obwiedni sygnału}
+    \chapter{Dynamiczna otoczka wypukła}
+    	\section{Algorytm}
+    	\section{Implementacja w języku Scala} 
+	\chapter{Podsumowanie} 
+      
+    \include{\includesDirectory/bib}
 \end{document}
