@@ -2,8 +2,11 @@
 
 
 \titleformat{\chapter}[block]
-  {\normalfont\huge}{\thechapter\vspace{-13pt}\\}{0pt}{\Large}
-\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+  {\normalfont}
+  {\Huge{\thechapter\vspace{-13pt}\\}}
+  {0pt}
+  {\Large}
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
 
 \newcommand{\chapterwithout}[1]{\chapter*{#1} 
 \addcontentsline{toc}{chapter}{#1}  
@@ -11,10 +14,12 @@
 
 \titleformat{\section}[block]
   {\normalfont}
-  {\makebox[0.5cm][l]{\thesection}}{10pt}{}
-\titlespacing*{\section}{0pt}{0pt}{0pt}
+  {\makebox[0.5cm][l]{\thesection}}
+  {10pt}
+  {}
+\titlespacing*{\section}{0pt}{10pt}{10pt}
 
 \titleformat{\subsection}[block]
   {\normalfont}
   {\hspace{1cm}\makebox[0.5cm][l]{\thesubsection}}{10pt}{}
-\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{5pt}{5pt}
