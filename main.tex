@@ -1,11 +1,15 @@
 \newcommand*{\includesDirectory}{includes}
 \newcommand*{\settingsDirectory}{\includesDirectory/settings}
+\newcommand*{\tikzDirectory}{\includesDirectory/tikz}
 
 \include{\settingsDirectory/geometry}
 \include{\settingsDirectory/language}
 \include{\settingsDirectory/page_number}
 \include{\settingsDirectory/table_of_contents}
 \include{\settingsDirectory/chapters}
+\include{\tikzDirectory/libraries}
+\include{\tikzDirectory/point}
+\include{\tikzDirectory/pointAndLabel}
 
 \begin{document}
     \thispagestyle{empty}
@@ -18,7 +22,28 @@
     \chapterwithout{Wstęp}        
 
     \chapter{Omówienie teoretyczne otoczki wypukłej na płaszczyźnie}
+    Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym cały wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób aby wielokąt ten miał jak najmniejsze pole.    
+    \begin{tikzpicture}
+    \coordinate (a) at (0,0);
+    \path[pointAndLabel = 
+    	reference: 1 
+    	x: 0
+    	y: 0
+	];
+	\path[pointAndLabel = 
+    	reference: 2
+    	x: 0
+    	y: 1
+	];
+	\draw (1)--
+		  (2);
+    \end{tikzpicture}      
+    
+    Dobrą reprezentacją otoczki wypukłej w świecie fizycznym może być grupa gwoździ przybita do płaskiej powierzchni i następnie opleciona ciasno sznurkiem. Gwoździe stykające się ze sznurkiem stanowiły będą wierzchołki otoczki wypukłej tej grupy gwoździ.
         \section{Otoczka wypukła zbioru punktów}
+        W celu wyznaczenia otoczki wypukłej dla najbardziej ogólnego przypadku - nieuporządkowanego zbioru punktów na płaszczyźnie, możemy wykorzystać dwa najbardziej popularne algorytmy Algorytm Jarvisa oraz Algorytm Grahama.
+        \subsection{Algorytm Grahama}
+        
         \section{Otoczka wypukła wielokąta prostego}
         \section{Redukcja zbioru punktów do wielokąta prostego}
     \chapter{Zastosowania} 

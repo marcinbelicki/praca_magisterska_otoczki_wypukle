@@ -1,0 +1,9 @@
+\tikzset {
+    pointAndLabel/.style args = {reference: #1 x: #2 y: #3}{
+        insert path = {
+            \pgfextra{
+                \path[point = reference: #1 x: #2 y: #3 label: $#1$ color: black];
+            }
+        }
+    }
+}
