@@ -25,19 +25,7 @@
     \chapter{Omówienie teoretyczne otoczki wypukłej na płaszczyźnie}
     Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym cały wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób aby wielokąt ten miał jak najmniejsze pole.    
     \begin{center}
-    	\begin{tikzpicture}
-    	
-    	\path[randomVertices];
-    	
-    	\draw (1.center)--
-    		  (10.center)--
-    		  (17.center)--
-    		  (19.center)--
-    		  (4.center)--
-    		  (20.center)--
-    		  cycle;
-    	
-    	\end{tikzpicture}  
+    	\input{\tikzDirectory/hull.tikz}
     \end{center}
         
     
@@ -45,6 +33,7 @@
         \section{Otoczka wypukła zbioru punktów}
         W celu wyznaczenia otoczki wypukłej dla najbardziej ogólnego przypadku - nieuporządkowanego zbioru punktów na płaszczyźnie, możemy wykorzystać dwa najbardziej popularne algorytmy Algorytm Jarvisa oraz Algorytm Grahama.
         \subsection{Algorytm Grahama}
+        
         
         \section{Otoczka wypukła wielokąta prostego}
         \section{Redukcja zbioru punktów do wielokąta prostego}
@@ -56,6 +45,9 @@
 		Obiekty wykorzystywane w grafice komputerowej często mogą charakteryzować się skomplikowanymi kształtami. Im bardziej skomplikowany kształt tym więcej mocy obliczeniowej potrzebne będzie w celu wykonania danej operacji na tym kształcie. W niektórych przypadkach do uproszczenia graficznego danego obiektu używa się otoczki wypukłej jego kształtu. Ze względu na fakt, iż otoczka wypukła wielokąta zawsze będzie miała liczbę wierzchołków mniejszą lub równą liczbie wierzchołków samego wielokąta, powstała otoczka może posłużyć do wykonania mniejszej liczby obliczeń przy wykonywaniu operacji na danym obiekcie.
 		\section{Detekcja obiektów}
         \section{Wyznaczanie obwiedni sygnału}
+        Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
+        
+        Algorytm wyznaczający otoczkę wypukłą wielokąta prostego może posłużyć znajdowaniu obwiedni sygnału.
         
     \chapter{Dynamiczna otoczka wypukła}
     	\section{Algorytm}
