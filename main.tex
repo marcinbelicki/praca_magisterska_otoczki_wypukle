@@ -1,18 +1,28 @@
 \newcommand*{\includesDirectory}{includes}
 \newcommand*{\settingsDirectory}{\includesDirectory/settings}
 \newcommand*{\tikzDirectory}{\includesDirectory/tikz}
+\newcommand*{\proovesDirectory}{\includesDirectory/prooves}
+\newcommand*{\oneDirectory}{\proovesDirectory/one}
 
 \include{\settingsDirectory/geometry}
+\include{\settingsDirectory/math}
 \include{\settingsDirectory/language}
 \include{\settingsDirectory/page_number}
 \include{\settingsDirectory/table_of_contents}
 \include{\settingsDirectory/chapters}
+
 \include{\tikzDirectory/libraries}
 \include{\tikzDirectory/point}
 \include{\tikzDirectory/pointAndLabel}
 \include{\tikzDirectory/randomVertices}
+\include{\tikzDirectory/arcs}
 
 \begin{document}
+\setlength{\abovedisplayskip}{.2 cm}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
     \thispagestyle{empty}
     \begin{center}
         \Huge{Otoczki wypukłe}
@@ -32,6 +42,48 @@
     Dobrą reprezentacją otoczki wypukłej w świecie fizycznym może być grupa gwoździ przybita do płaskiej powierzchni i następnie opleciona ciasno sznurkiem. Gwoździe stykające się ze sznurkiem stanowiły będą wierzchołki otoczki wypukłej tej grupy gwoździ.
         \section{Otoczka wypukła zbioru punktów}
         W celu wyznaczenia otoczki wypukłej dla najbardziej ogólnego przypadku - nieuporządkowanego zbioru punktów na płaszczyźnie, możemy wykorzystać dwa najbardziej popularne algorytmy Algorytm Jarvisa oraz Algorytm Grahama.
+        
+        W wykorzystywanych algorytmach... 
+        \begin{center}
+    		\input{\tikzDirectory/axis.tikz}
+    	\end{center}
+        \begin{align}
+        	p\left(\theta\right) = \left( 
+        		\left|R\right| \cdot \cos \theta , 
+        		\left|R\right| \cdot \sin \theta
+        	\right)
+        \end{align}
+        \begin{align}
+        	\theta\left(p\right) = \left\{
+        		\begin{array}{lclcr}
+        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)}& \text{dla} & x\left(p\right) > 0 \\
+        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)} + \pi& \text{dla} & x\left(p\right) < 0 & \wedge & y\left(p\right) \geqslant 0 \\
+        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)} - \pi& \text{dla} & x\left(p\right) < 0 & \wedge & y\left(p\right) < 0 \\
+        			\frac{\pi}{2}& \text{dla} & x\left(p\right) = 0 & \wedge & y\left(p\right) < 0 \\
+        			-\frac{\pi}{2}& \text{dla} & x\left(p\right) = 0 & \wedge & y\left(p\right) > 0 \\
+        		\end{array}
+        	\right.
+        \end{align}
+        \begin{align}
+        	\alpha\left( p\right) = \left\{
+        		\begin{array}{lclcr}
+        			\frac{y\left(p\right)}{d\left(p\right)} & \text{dla} &
+        			x\left(p\right) \geqslant 0 & \wedge & y\left(p\right) \geqslant 0 \\
+        			2 - \frac{y\left(p\right)}{d\left(p\right)} & \text{dla} &
+        			x\left(p\right) < 0 & \wedge & y\left(p\right) \geqslant 0 \\
+        			2 + \frac{\left|y\left(p\right)\right|}{d\left(p\right)} & \text{dla} &
+        			x\left(p\right) < 0 & \wedge & y\left(p\right) < 0 \\
+        			4 - \frac{\left|y\left(p\right)\right|}{d\left(p\right)} & \text{dla} &
+        			x\left(p\right) \geqslant 0 & \wedge & y\left(p\right) < 0
+        		\end{array}
+        	\right.
+        \end{align}
+        \begin{align}
+        	d\left(p\right) = \left|x\left(p\right)\right| + \left|y\left(p\right)\right|
+        \end{align}
+        
+        \input{\oneDirectory/main}
+              
         \subsection{Algorytm Grahama}
         
         

@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+    	
+   \draw [-arcs] 
+   (-2.5,0) --
+   (2.5,0)  
+   node[above] {$X$};
+   
+   \draw [-arcs] 
+   (0,-2.5) --
+   (0,2.5)   
+   node[left] {$Y$} ;
+   
+   
+   \path[point = reference: p x: -1.5 y: 1.5 label: $p$ color: black];
+   
+   \draw [dashed] 
+   (0,0) -- node [above right = 0 mm] {\small{$R$}}
+   (p.center);
+   
+   \draw [dashed] 
+   (p.center) --++
+   (1.5,0) 
+   node[right] {\footnotesize{$y\left(p\right) = \left|R\right|\cdot \sin \theta$}} ;
+   
+   \draw [dashed] 
+   (p.center) --++
+   (0,-1.5) 
+   node[below] {\footnotesize{$x\left(p\right) = \left|R\right|\cdot \cos \theta$}};
+   
+   
+   \tzanglemark[-arcs](2.5,0)(0,0)(p){\small{$\theta$}}[pos=1.4](.6)
+  
+
+    
+\end{tikzpicture} 

@@ -1,0 +1,122 @@
+\item $x\left(p\right) < 0 \ \wedge \ y\left(p\right) \geqslant 0 \ \Leftrightarrow \ 
+  		\theta \in \left( \frac{\pi}{2};\pi\right\rangle$
+  		\begin{align*}
+        	\alpha\left( p\right) & = 2 - \frac{
+        		y\left(p\right)
+        	}{
+        		d\left(p\right)
+        	} = 2 - \frac{
+        		y\left(p\right)
+        	}{
+        		\left|x\left(p\right)\right| + \left|y\left(p\right)\right|
+        	} = 2 - \frac{
+        		y\left(p\right)
+        	}{
+        		-x\left(p\right) + y\left(p\right)
+        	} & \hspace{10cm}\\
+        	& = 2 - \frac{
+        		y\left(p\right)
+        	}{
+        		y\left(p\right) - x\left(p\right)
+        	}\\
+        	\gamma\left( \theta\right) & = \alpha\left( p\left(\theta\right) \right) = 2 - \frac{
+        		\left|R\right| \cdot \sin \theta
+        	}{
+        		 \left|R\right| \cdot \sin \theta - \left|R\right| \cdot \cos \theta 
+        	} = 2 - \frac{
+        		\sin \theta
+        	}{
+        		\sin \theta - \cos \theta
+        	} \\
+        	\frac{
+        		d
+        	}{
+        		d\theta
+        	}\gamma\left( \theta\right) & = \frac{
+        		d
+        	}{
+        		d\theta
+        	}\left( 2 - 
+        		\frac{ 
+        			\sin \theta
+        		}{
+        			\sin \theta - \cos \theta
+        		}
+        	\right) \\ 
+        	& =-\frac{
+        		\frac{
+        			d
+        		}{
+        			d\theta
+        		}\left(
+        			\sin\theta
+        		\right)\cdot\left(
+        			\sin \theta - \cos \theta
+        		\right)
+        		-\sin\theta\cdot\frac{
+        			d
+        		}{
+        			d\theta
+        		}\left(\sin \theta - \cos \theta\right)
+        		}{
+        		\left(
+        			\sin \theta - \cos \theta
+        		\right)^2
+        		}\\
+        	& =-\frac{
+        		\cos\theta\cdot\left(\sin \theta - \cos \theta\right)
+        		-\sin\theta\cdot\left(\cos \theta + \sin \theta\right)
+        	}{
+        		\sin^2 \theta - 2\sin\theta\cos\theta + \cos^2 \theta 
+        	}\\
+        	& =-\frac{
+        		\cos\theta\sin \theta - \cos^2 \theta
+        		-\sin\theta\cos \theta  - \sin^2 \theta
+        	}{
+        		1 - 2\sin\theta\cos\theta
+        	}\\
+        	& = -\frac{
+        		- \cos^2 \theta
+        		- \sin^2 \theta
+        	}{
+        		1 - 2\sin\theta\cos\theta
+        	} =\frac{
+        		\sin^2 \theta +
+        		\cos^2 \theta
+        	}{
+        		1 - \sin 2\theta
+        	} = \frac{
+        		1
+        	}{
+        		1 - \sin 2\theta
+        	} 
+        \end{align*}
+        \begin{align*}
+        	\frac{d}{d\theta}\gamma\left( \theta\right)& > 0& \hspace{10cm}\\
+        	\frac{
+        		1
+        	}{
+        		1 - \sin 2\theta
+        	} & > 0\\
+        	1 - \sin 2\theta & > 0\\
+        	 -\sin 2\theta & > -1\\
+        	 \sin 2\theta & < 1\\
+        	 \sin 2\theta & \neq 1\\
+        	 2\theta & \neq \frac{\pi}{2} + 2k\pi\\
+        	 \theta & \neq \frac{\pi}{4} + k\pi ; \ k \in \mathbb{Z}
+        \end{align*}
+       	\begin{align*}
+       		\left. \begin{array}{rcl}
+       		 k = 0 & \Rightarrow & \theta \neq \frac{\pi}{4} < \frac{\pi}{2}  \\
+    	 	 k = 1 & \Rightarrow &\theta \neq \frac{5}{4}\pi > \pi
+    	 	\end{array}    \right\}\Rightarrow \frac{d}{d\theta}\gamma\left( \theta\right) > 0 \text{ dla } \theta \in \left( \frac{\pi}{2};\pi\right\rangle& \hspace{10cm}
+        \end{align*}
+       	\begin{align*}
+       	\left. \begin{array}{rcl}
+       		\gamma\left( \frac{\pi}{2}\right) & = &
+       		 2 - \frac{\sin \frac{\pi}{2}}{\sin \frac{\pi}{2} - \cos \frac{\pi}{2}} 
+       		 =2 - \frac{1}{1 - 0} = 1\\	
+       		\gamma\left( \pi\right) & = &
+       		2 - \frac{\sin  \pi}{\sin  \pi - \cos \pi} = 2 - \frac{0}{0 - \left(-1\right)}= 2
+       	\end{array} \right\} \Rightarrow \gamma\left( \theta\right) \in \left( 1;2\right\rangle \text{ dla } \theta \in \left( \frac{\pi}{2};\pi\right\rangle& \hspace{10cm}
+        \end{align*}
