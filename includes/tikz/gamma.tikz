@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+	\tzfn
+		[red]
+		{sin(\x r)/(sin(\x r) + cos(\x r))}
+		[0:.5*pi] 
+	\tzfn
+		[blue]
+		{2 - sin(\x r)/(sin(\x r) - cos(\x r))}
+		[.5*pi:pi] 
+	\tzfn
+		[green]
+		{2 + sin(\x r)/(sin(\x r) + cos(\x r))}
+		[pi:1.5*pi] 
+	\tzfn
+		[pink]
+		{4 + sin(\x r)/(cos(\x r) - sin(\x r))}
+		[1.5*pi:2*pi] 
+\end{tikzpicture}
