@@ -1,18 +1,65 @@
 \begin{tikzpicture}
+	
+	\draw 
+		[help lines, very thin] 
+		(0,0) 
+		grid [xstep = pi/2]
+		(2*pi - 0.001,4- 0.001);
+		
+	\tzaxes 
+		[
+			-arcs,
+			line width=0.2mm
+		]
+		(2*pi,4)
+		{$\theta$}
+		{$\gamma\left(\theta\right)$}
+		
+	\tzticksx
+		(-5pt:5pt)
+		{
+			0,
+			pi*.5/$\frac{\pi}{2}$,
+			pi/$\pi$,
+			pi*1.5/$\frac{3\pi}{2}$
+		}
+		[below=5pt]
+		
+	\tzticksy
+		(-5pt:5pt)
+		{	
+			0,
+			1,
+			2,
+			3
+		}
+		[left=5pt]
 	\tzfn
-		[red]
+		[
+			black,
+			line width=0.25mm
+		]
 		{sin(\x r)/(sin(\x r) + cos(\x r))}
 		[0:.5*pi] 
 	\tzfn
-		[blue]
+		[
+			black,
+			line width=0.25mm
+		]
 		{2 - sin(\x r)/(sin(\x r) - cos(\x r))}
 		[.5*pi:pi] 
 	\tzfn
-		[green]
+		[
+			black,
+			line width=0.25mm
+		]
 		{2 + sin(\x r)/(sin(\x r) + cos(\x r))}
 		[pi:1.5*pi] 
 	\tzfn
-		[pink]
+		[
+			black,
+			line width=0.25mm
+		]
 		{4 + sin(\x r)/(cos(\x r) - sin(\x r))}
 		[1.5*pi:2*pi] 
 \end{tikzpicture}

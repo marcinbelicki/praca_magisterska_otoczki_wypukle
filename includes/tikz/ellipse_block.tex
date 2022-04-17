@@ -1,0 +1,16 @@
+\tikzset {
+    ellipse_block/.style args = {reference: #1 text: #2}{
+        insert path = {
+            \pgfextra{
+                \node
+                	[
+                		ellipse,
+                		draw = black
+                	]
+                	at (#1)
+                	(#1_block) 
+                	{#2};
+            }
+        }
+    }
+}

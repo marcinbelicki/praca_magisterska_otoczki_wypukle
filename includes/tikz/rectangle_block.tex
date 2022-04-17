@@ -1,0 +1,51 @@
+\tikzset {
+   rectangle_block/.style ={draw=black,rectangle}
+}
+
+
+\newcommand{\block}[2]{
+
+  \node[rectangle_block,below] at (#1.north) (#1_block) {
+  	\begin{minipage}{5.2cm}\begin{tiny}\begin{flushleft}\begin{spacing}{1.5}
+			#2
+	\end{spacing}\end{flushleft}\end{tiny}\vspace{-8mm}\end{minipage}
+  };
+  
+  
+  
+  \node at (#1_block.south) (#1_south) {};
+ 
+}
+
+\newcommand{\smallblock}[2]{
+
+  \node[rectangle_block,below] at (#1.north) (#1_block) {
+  	\begin{minipage}{5cm}\begin{small}\begin{center}\begin{spacing}{1.5}
+			#2
+	\end{spacing}\end{center}\end{small}\vspace{-12mm}\end{minipage}
+  };
+  
+  
+  
+  \node at (#1_block.south) (#1_south) {};
+ 
+}
+
+\newcommand{\chooseblock}[2]{
+
+  \node[diamond,draw =black,below, aspect = 3] at (#1.north) (#1_block) {
+  	\tiny{
+  		#2
+	}
+  };
+  
+  \node[below right] at (#1_block.south) {T};
+  
+  
+  \node at (#1_block.south) (#1_south) {};
+ 
+}
+%\newcommand{\newnode}[2]{
+%	\node at (#1) (#2) {}
+
+%}

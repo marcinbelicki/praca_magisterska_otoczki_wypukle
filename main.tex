@@ -4,6 +4,7 @@
 \newcommand*{\proovesDirectory}{\includesDirectory/prooves}
 \newcommand*{\oneDirectory}{\proovesDirectory/one}
 
+
 \input{\settingsDirectory/geometry}
 \input{\settingsDirectory/math}
 \input{\settingsDirectory/language}
@@ -13,15 +14,18 @@
 
 \input{\tikzDirectory/libraries}
 \input{\tikzDirectory/point}
+\input{\tikzDirectory/ellipse_block}
+\input{\tikzDirectory/rectangle_block}
 \input{\tikzDirectory/pointAndLabel}
 \input{\tikzDirectory/randomVertices}
 \input{\tikzDirectory/arcs}
 
 \begin{document}
-\setlength{\abovedisplayskip}{.2 cm}
-\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{9pt}
 \setlength{\abovedisplayshortskip}{0pt}
-\setlength{\belowdisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{9pt}
+\setlength{\jot}{18pt}
 
     \thispagestyle{empty}
     \begin{center}
@@ -33,7 +37,7 @@
     \chapterwithout{Wstęp}        
 
     \chapter{Omówienie teoretyczne otoczki wypukłej na płaszczyźnie}
-    Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym cały wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób aby wielokąt ten miał jak najmniejsze pole.    
+    Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób aby wielokąt ten miał jak najmniejsze pole.    
     \begin{center}
     	\input{\tikzDirectory/hull.tikz}
     \end{center}
@@ -81,12 +85,84 @@
         \begin{align}
         	d\left(p\right) = \left|x\left(p\right)\right| + \left|y\left(p\right)\right|
         \end{align}
-        
         \input{\oneDirectory/main}
-        
-        \input{\tikzDirectory/gamma.tikz}
+        \begin{align}
+        	\gamma\left(
+        		\theta
+        	\right) = 
+        		\left\{
+        			\begin{array}{lcl}
+        				\frac{
+        					\sin\theta
+        				}{
+							\sin\theta + \cos\theta        			
+        				} & 
+        					\text{dla} &
+        					\theta \in \left\langle
+        						0;
+        						\frac{
+        							\pi
+        						}{
+									2        						
+        						}
+        					\right\rangle\\
+        				2
+        				- \frac{
+        					\sin\theta
+        				}{
+							\sin\theta - \cos\theta        			
+        				} & 
+        					\text{dla} &
+        					\theta \in \left(
+        						\frac{
+        							\pi
+        						}{
+									2        						
+        						};
+        						\pi
+        					\right\rangle\\
+        				2
+        				+ \frac{
+        					\sin\theta
+        				}{
+							\sin\theta + \cos\theta        			
+        				} & 
+        					\text{dla} &
+        					\theta \in \left(
+        						\pi;
+        						\frac{
+        							3\pi
+        						}{
+									2        						
+        						}
+        					\right)\\
+        				4
+        				- \frac{
+        					\sin\theta
+        				}{
+							\sin\theta + \cos\theta        			
+        				} & 
+        					\text{dla} &
+        					\theta \in \left\langle
+        						\frac{
+        							3\pi
+        						}{
+									2        						
+        						};
+        						2\pi
+        					\right)\\
+        			\end{array}
+        		\right.      		
+        \end{align}
+        \begin{center}
+        	\input{\tikzDirectory/gamma.tikz}
+        \end{center}
+       
               
         \subsection{Algorytm Grahama}
+        \input{\tikzDirectory/graham.tikz}
+       
+        \subsection{Algorytm Jarvisa}
         
         
         \section{Otoczka wypukła wielokąta prostego}
