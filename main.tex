@@ -11,6 +11,7 @@
 \input{\settingsDirectory/page_number}
 \input{\settingsDirectory/table_of_contents}
 \input{\settingsDirectory/chapters}
+\usepackage[all]{hypcap}
 
 \input{\tikzDirectory/libraries}
 \input{\tikzDirectory/point}
@@ -25,7 +26,7 @@
 \setlength{\belowdisplayskip}{9pt}
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{9pt}
-\setlength{\jot}{18pt}
+\setlength{\jot}{1.5ex}
 
     \thispagestyle{empty}
     \begin{center}
@@ -47,17 +48,28 @@
         \section{Otoczka wypukła zbioru punktów}
         W celu wyznaczenia otoczki wypukłej dla najbardziej ogólnego przypadku - nieuporządkowanego zbioru punktów na płaszczyźnie, możemy wykorzystać dwa najbardziej popularne algorytmy Algorytm Jarvisa oraz Algorytm Grahama.
         
-        W wykorzystywanych algorytmach... 
-        \begin{center}
-    		\input{\tikzDirectory/axis.tikz}
+        W wykorzystywanych algorytmach istotnym elementem jest sortowanie punktów względem wartości, które zostały przedstawione na rysunku \ref{fig:axis}. W zależności od tego w jakiej postaci określone będą dane punkty. Należało będzie dokonać odpowiednich obliczeń.
+        \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/axis.tikz}
+    			\caption{Punkt na układzie współrzędnych}\label{fig:axis}
     	\end{center}
-        \begin{align}
-        	p\left(\theta\right) = \left( 
-        		\left|R\right| \cdot \cos \theta , 
-        		\left|R\right| \cdot \sin \theta
-        	\right)
-        \end{align}
-        \begin{align}
+    	\end{figure}\vspace{-8 mm}\\
+    	Gdzie poszczególne symbole oznaczają:\\
+    	\begin{tabular}{rcl}
+    	$p$ & - & rozpatrywany punkt\\
+    	$x\left( p \right)$ & - & odcięta punktu $p$\\
+    	$y\left( p \right)$ & - & rzędna punktu $p$\\
+    	$R$ & - & długość wektora wodzącego punktu $p$\\
+    	$\theta$ & - & kąt nachylenia wektora wodzącego punktu $p$ do osi $OX$
+    	\end{tabular}\\
+    	
+    	Istotną komplikację z punktu widzenia obliczeń  w algorytmach może stanowić wyznaczenie wartości kąta $\theta$ (ze względu na potrzebę wykorzystania funkcji trygonometrycznych), którego dokładną wartość można wyliczyć za pomocą wzoru \ref{eq:theta}. Należy jednak zauważyć, że do celów sortowania wystarczy zastosować funkcję $\alpha\left(p\right)$.  Taką, że dla każdej pary punktów $p_1, p_2$ spełnione będą warunki:
+    	$\alpha\left(p_1\right) <  \alpha\left(p_2\right)
+    	\Leftrightarrow \theta\left(p_1\right) <  \theta\left(p_2\right)$ oraz 
+    	$\alpha\left(p_1\right) =  \alpha\left(p_2\right)
+    	\Leftrightarrow \theta\left(p_1\right) = \theta\left(p_2\right)$.\\
+        \begin{align}\label{eq:theta}
         	\theta\left(p\right) = \left\{
         		\begin{array}{lclcr}
         			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)}& \text{dla} & x\left(p\right) > 0 \\
@@ -68,7 +80,9 @@
         		\end{array}
         	\right.
         \end{align}
-        \begin{align}
+   		Przykładowa funkcja $\alpha\left(p\right)$ zachowująca te właściwości została przedstawiona za pomocą wzoru \ref{eq:alpha1}.
+   		
+   		\begin{align}\label{eq:alpha1}
         	\alpha\left( p\right) = \left\{
         		\begin{array}{lclcr}
         			\frac{y\left(p\right)}{d\left(p\right)} & \text{dla} &
@@ -82,6 +96,18 @@
         		\end{array}
         	\right.
         \end{align}
+
+        
+        	
+    	
+        \begin{align}
+        	p\left(\theta\right) = \left( 
+        		\left|R\right| \cdot \cos \theta , 
+        		\left|R\right| \cdot \sin \theta
+        	\right)
+        \end{align}
+        
+        
         \begin{align}
         	d\left(p\right) = \left|x\left(p\right)\right| + \left|y\left(p\right)\right|
         \end{align}
