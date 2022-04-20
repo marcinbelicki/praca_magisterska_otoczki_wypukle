@@ -11,7 +11,7 @@
 \input{\settingsDirectory/page_number}
 \input{\settingsDirectory/table_of_contents}
 \input{\settingsDirectory/chapters}
-\usepackage[all]{hypcap}
+
 
 \input{\tikzDirectory/libraries}
 \input{\tikzDirectory/point}
@@ -22,10 +22,12 @@
 \input{\tikzDirectory/arcs}
 
 \begin{document}
-\setlength{\abovedisplayskip}{0pt}
-\setlength{\belowdisplayskip}{9pt}
-\setlength{\abovedisplayshortskip}{0pt}
-\setlength{\belowdisplayshortskip}{9pt}
+
+\newcommand{\alignspace}{\vspace{- 3pt}}
+\setlength{\abovedisplayskip}{0ex}
+\setlength{\belowdisplayskip}{0ex}
+\setlength{\abovedisplayshortskip}{0ex}
+\setlength{\belowdisplayshortskip}{0ex}
 \setlength{\jot}{1.5ex}
 
     \thispagestyle{empty}
@@ -48,7 +50,7 @@
         \section{Otoczka wypukła zbioru punktów}
         W celu wyznaczenia otoczki wypukłej dla najbardziej ogólnego przypadku - nieuporządkowanego zbioru punktów na płaszczyźnie, możemy wykorzystać dwa najbardziej popularne algorytmy Algorytm Jarvisa oraz Algorytm Grahama.
         
-        W wykorzystywanych algorytmach istotnym elementem jest sortowanie punktów względem wartości, które zostały przedstawione na rysunku \ref{fig:axis}. W zależności od tego w jakiej postaci określone będą dane punkty. Należało będzie dokonać odpowiednich obliczeń.
+        W wykorzystywanych algorytmach istotnym elementem jest sortowanie punktów względem wartości, które zostały przedstawione na rysunku \ref{fig:axis}. W zależności od tego w jakiej postaci określone będą dane punkty, należało będzie dokonać odpowiednich obliczeń.
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/axis.tikz}
@@ -64,11 +66,7 @@
     	$\theta$ & - & kąt nachylenia wektora wodzącego punktu $p$ do osi $OX$
     	\end{tabular}\\
     	
-    	Istotną komplikację z punktu widzenia obliczeń  w algorytmach może stanowić wyznaczenie wartości kąta $\theta$ (ze względu na potrzebę wykorzystania funkcji trygonometrycznych), którego dokładną wartość można wyliczyć za pomocą wzoru \ref{eq:theta}. Należy jednak zauważyć, że do celów sortowania wystarczy zastosować funkcję $\alpha\left(p\right)$.  Taką, że dla każdej pary punktów $p_1, p_2$ spełnione będą warunki:
-    	$\alpha\left(p_1\right) <  \alpha\left(p_2\right)
-    	\Leftrightarrow \theta\left(p_1\right) <  \theta\left(p_2\right)$ oraz 
-    	$\alpha\left(p_1\right) =  \alpha\left(p_2\right)
-    	\Leftrightarrow \theta\left(p_1\right) = \theta\left(p_2\right)$.\\
+    	Istotną komplikację z punktu widzenia obliczeń  w algorytmach może stanowić wyznaczenie wartości kąta $\theta$ (ze względu na potrzebę wykorzystania funkcji trygonometrycznych), którego dokładną wartość można wyliczyć za pomocą wzoru \ref{eq:theta}.\\
         \begin{align}\label{eq:theta}
         	\theta\left(p\right) = \left\{
         		\begin{array}{lclcr}
@@ -79,9 +77,17 @@
         			-\frac{\pi}{2}& \text{dla} & x\left(p\right) = 0 & \wedge & y\left(p\right) > 0 \\
         		\end{array}
         	\right.
-        \end{align}
-   		Przykładowa funkcja $\alpha\left(p\right)$ zachowująca te właściwości została przedstawiona za pomocą wzoru \ref{eq:alpha1}.
-   		
+        \end{align}\\
+         Należy jednak zauważyć, że do celów sortowania wystarczy zastosować funkcję $\alpha\left(p\right)$.  Taką, że dla dowolnej pary punktów $p_1, p_2$ spełnione będą warunki \ref{eq:condition1} oraz \ref{eq:condition2}. 
+    	\begin{align}\label{eq:condition1}
+    		\alpha\left(p_1\right) <  \alpha\left(p_2\right)
+    		\Leftrightarrow \theta\left(p_1\right) <  \theta\left(p_2\right)\\
+    		\label{eq:condition2}
+    		\alpha\left(p_1\right) =  \alpha\left(p_2\right)
+    		\Leftrightarrow \theta\left(p_1\right) = \theta\left(p_2\right)
+    	\end{align}
+
+   		Przykładowa funkcja $\alpha\left(p\right)$ zachowująca spełniająca warunki \ref{eq:condition1} i \ref{eq:condition2} została przedstawiona za pomocą wzoru \ref{eq:alpha1}.\\
    		\begin{align}\label{eq:alpha1}
         	\alpha\left( p\right) = \left\{
         		\begin{array}{lclcr}
@@ -95,24 +101,68 @@
         			x\left(p\right) \geqslant 0 & \wedge & y\left(p\right) < 0
         		\end{array}
         	\right.
-        \end{align}
-
-        
-        	
-    	
-        \begin{align}
+        \end{align}\\
+    Gdzie funkcja $d\left(p\right)$ określona jest zgodnie ze wzorem \ref{eq:dp}.
+    \begin{align}\label{eq:dp}
+        	d\left(p\right) = \left|x\left(p\right)\right| + \left|y\left(p\right)\right|
+    \end{align}
+    
+     W celu udowodnienia, że funkcja $\alpha\left(p\right)$ spełnia warunki \ref{eq:condition1} i \ref{eq:condition2} musimy wykazać, że funkcja $\gamma\left(\theta\right)$ (przedstawiona we wzorze \ref{eq:gamma}), która stanowi przekształcenie funkcji $\alpha\left(p\right)$, takie że jest w pełni zależna od wartości $\theta$, a wartości $x\left(p\left(\theta\right)\right)$ oraz $y\left(p\left(\theta\right)\right)$ są określone zgodnie ze wzorem \ref{eq:ptheta}, jest rosnąca w każdym swoim przedziale.
+     \begin{align}\label{eq:gamma}
+        	\gamma\left(\theta\right) = \alpha\left(p\left(\theta\right)\right)
+     \end{align}
+     \begin{align}\label{eq:ptheta}
         	p\left(\theta\right) = \left( 
         		\left|R\right| \cdot \cos \theta , 
         		\left|R\right| \cdot \sin \theta
         	\right)
-        \end{align}
-        
-        
-        \begin{align}
-        	d\left(p\right) = \left|x\left(p\right)\right| + \left|y\left(p\right)\right|
-        \end{align}
-        \input{\oneDirectory/main}
-        \begin{align}
+     \end{align}
+     
+    
+
+     Należy zauważyć, że poszczególne przypadki opisane we wzorze \ref{eq:alpha1} dzielą układ współrzędnych na cztery ćwiartki. Zatem z rysunku \ref{fig:axis} wynikają zależności:
+     \ref{eq:xytotheta1}, 
+     \ref{eq:xytotheta2}, 
+     \ref{eq:xytotheta3} oraz
+     \ref{eq:xytotheta4}.
+     \begin{align}\label{eq:xytotheta1}
+    		x\left(p\right) \geqslant 0 \ \wedge \  y\left(p\right) \geqslant 0  \ & \Leftrightarrow \ \theta \in \left\langle 0;\frac{\pi}{2}\right\rangle \\
+    		\label{eq:xytotheta2}
+    		x\left(p\right) < 0 \ \wedge \ y\left(p\right) \geqslant 0 \ & \Leftrightarrow \
+  		\theta \in \left( \frac{\pi}{2};\pi\right\rangle\\
+  		\label{eq:xytotheta3}
+    		x\left(p\right) < 0 \ \wedge \ y\left(p\right) < 0 \ & \Leftrightarrow \
+  		\theta \in \left( \pi;\frac{3\pi}{2}\right)\\
+  		\label{eq:xytotheta4}
+  		x\left(p\right) \geqslant 0 \ \wedge \ y\left(p\right) < 0 \ & \Leftrightarrow \
+  	\theta \in \left\langle
+  		\frac{
+  			3\pi
+  		}{
+  			2
+  		};
+  		2\pi
+  	\right)
+    \end{align}
+    
+    Zatem w celu udowodnienia spełnienia warunków \ref{eq:condition1} i \ref{eq:condition2} przez funkcję $\alpha\left(p\right)$ (\ref{eq:alpha1}) należy udowodnić, że funkcja $\gamma\left(\theta\right)$ (\ref{eq:gamma}) jest rosnąca (jej pochodna jest większa od zera) we wszystkich przedziałach opisanych w zależnościach: 
+    \ref{eq:xytotheta1}, 
+     \ref{eq:xytotheta2}, 
+     \ref{eq:xytotheta3} oraz
+     \ref{eq:xytotheta4}.
+    
+    Obliczenia dla tych czterech przedziałów przedstawiają się w następujący sposób. Dla każdego z przedziałów możliwe było uproszczenie funkcji $d\left(p\right)$, tak aby pozbyć się modułu, przez co różniczkowanie funkcji $\gamma\left(\theta\right)$ było łatwiejsze.
+ 
+    \input{\oneDirectory/main}
+    
+    Z powyższych obliczeń wynika, że we wszystkich przedziałach z zależności:
+    \ref{eq:xytotheta1}, 
+     \ref{eq:xytotheta2}, 
+     \ref{eq:xytotheta3} oraz
+     \ref{eq:xytotheta4} funkcja $\gamma\left(\theta\right)$ ma dodatnią pochodną, a tym samym jest rosnąca we wszystkich przedziałach oraz każda z wartości osiąganych w przedziale jest większa od każdej wartości z poprzedniego przedziału, tym samym funkcja $\alpha\left(p\right)$ spełnia warunki \ref{eq:condition1} i \ref{eq:condition2}.
+     
+     Postać funkcji $\gamma\left(\theta\right)$ może być opisana wzorem \ref{eq:gammaeq}, a wykres jej przebiegu, przedstawiony na rysunku \ref{fig:gamma}, wyraźnie potwierdza jej rosnącą monotoniczność we wszystkich przedziałach.
+        \begin{align}\label{eq:gammaeq}
         	\gamma\left(
         		\theta
         	\right) = 
@@ -180,9 +230,12 @@
         			\end{array}
         		\right.      		
         \end{align}
-        \begin{center}
-        	\input{\tikzDirectory/gamma.tikz}
-        \end{center}
+        \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/gamma.tikz}
+    			\caption{Wykres funkcji $\gamma\left(\theta\right)$ }\label{fig:gamma}
+    	\end{center}
+    	\end{figure}\vspace{-8 mm}\\
        
               
         \subsection{Algorytm Grahama}
