@@ -40,17 +40,17 @@
     \chapterwithout{Wstęp}        
 
     \chapter{Omówienie teoretyczne otoczki wypukłej na płaszczyźnie}
-    Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób aby wielokąt ten miał jak najmniejsze pole.    
+    Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób, aby wielokąt ten miał jak najmniejsze pole.    
     \begin{center}
     	\input{\tikzDirectory/hull.tikz}
     \end{center}
         
     
-    Dobrą reprezentacją otoczki wypukłej w świecie fizycznym może być grupa gwoździ przybita do płaskiej powierzchni i następnie opleciona ciasno sznurkiem. Gwoździe stykające się ze sznurkiem stanowiły będą wierzchołki otoczki wypukłej tej grupy gwoździ.
+    Dobrą reprezentacją otoczki wypukłej w świecie fizycznym może być grupa gwoździ przybita do płaskiej powierzchni i następnie opleciona ciasno sznurkiem. Gwoździe stykające się ze sznurkiem stanowić będą wierzchołki otoczki wypukłej tej grupy gwoździ.
         \section{Otoczka wypukła zbioru punktów}
-        W celu wyznaczenia otoczki wypukłej dla najbardziej ogólnego przypadku - nieuporządkowanego zbioru punktów na płaszczyźnie, możemy wykorzystać dwa najbardziej popularne algorytmy Algorytm Jarvisa oraz Algorytm Grahama.
+        W celu wyznaczenia otoczki wypukłej dla najbardziej ogólnego przypadku --- nieuporządkowanego zbioru punktów na płaszczyźnie, możemy wykorzystać dwa najbardziej popularne algorytmy algorytm Jarvisa oraz algorytm Grahama.
         
-        W wykorzystywanych algorytmach istotnym elementem jest sortowanie punktów względem wartości, które zostały przedstawione na rysunku \ref{fig:axis}. W zależności od tego w jakiej postaci określone będą dane punkty, należało będzie dokonać odpowiednich obliczeń.
+        W wykorzystywanych algorytmach istotnym elementem jest sortowanie punktów względem wartości, które zostały przedstawione na rysunku \ref{fig:axis}. W zależności od tego, w jakiej postaci określone będą dane punkty, należy dokonać odpowiednich obliczeń.
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/axis.tikz}
@@ -70,15 +70,15 @@
         \begin{align}\label{eq:theta}
         	\theta\left(p\right) = \left\{
         		\begin{array}{lclcr}
-        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)}& \text{dla} & x\left(p\right) > 0 \\
-        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)} + \pi& \text{dla} & x\left(p\right) < 0 & \wedge & y\left(p\right) \geqslant 0 \\
-        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)} - \pi& \text{dla} & x\left(p\right) < 0 & \wedge & y\left(p\right) < 0 \\
-        			\frac{\pi}{2}& \text{dla} & x\left(p\right) = 0 & \wedge & y\left(p\right) < 0 \\
-        			-\frac{\pi}{2}& \text{dla} & x\left(p\right) = 0 & \wedge & y\left(p\right) > 0 \\
+        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)}& \text{dla} & x\left(p\right) > 0; \\
+        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)} + \pi& \text{dla} & x\left(p\right) < 0 & \wedge & y\left(p\right) \geqslant 0; \\
+        			\operatorname {arctg} \frac{y\left(p\right)}{x\left(p\right)} - \pi& \text{dla} & x\left(p\right) < 0 & \wedge & y\left(p\right) < 0; \\
+        			\frac{\pi}{2}& \text{dla} & x\left(p\right) = 0 & \wedge & y\left(p\right) < 0; \\
+        			-\frac{\pi}{2}& \text{dla} & x\left(p\right) = 0 & \wedge & y\left(p\right) > 0. \\
         		\end{array}
         	\right.
         \end{align}\\
-         Należy jednak zauważyć, że do celów sortowania wystarczy zastosować funkcję $\alpha\left(p\right)$.  Taką, że dla dowolnej pary punktów $p_1, p_2$ spełnione będą warunki \ref{eq:condition1} oraz \ref{eq:condition2}. 
+         Należy jednak zauważyć, że do celów sortowania wystarczy zastosować funkcję $\alpha\left(p\right)$, taką, że dla dowolnej pary punktów $p_1, p_2$ spełnione będą warunki \ref{eq:condition1} oraz \ref{eq:condition2}. 
     	\begin{align}\label{eq:condition1}
     		\alpha\left(p_1\right) <  \alpha\left(p_2\right)
     		\Leftrightarrow \theta\left(p_1\right) <  \theta\left(p_2\right)\\
@@ -86,19 +86,18 @@
     		\alpha\left(p_1\right) =  \alpha\left(p_2\right)
     		\Leftrightarrow \theta\left(p_1\right) = \theta\left(p_2\right)
     	\end{align}
-
-   		Przykładowa funkcja $\alpha\left(p\right)$ zachowująca spełniająca warunki \ref{eq:condition1} i \ref{eq:condition2} została przedstawiona za pomocą wzoru \ref{eq:alpha1}.\\
+		Przykładowa funkcja $\alpha\left(p\right)$ zachowująca spełniająca warunki \ref{eq:condition1} i \ref{eq:condition2} została przedstawiona za pomocą wzoru \ref{eq:alpha1}.\\
    		\begin{align}\label{eq:alpha1}
         	\alpha\left( p\right) = \left\{
         		\begin{array}{lclcr}
         			\frac{y\left(p\right)}{d\left(p\right)} & \text{dla} &
-        			x\left(p\right) \geqslant 0 & \wedge & y\left(p\right) \geqslant 0 \\
+        			x\left(p\right) \geqslant 0 & \wedge & y\left(p\right) \geqslant 0; \\
         			2 - \frac{y\left(p\right)}{d\left(p\right)} & \text{dla} &
-        			x\left(p\right) < 0 & \wedge & y\left(p\right) \geqslant 0 \\
+        			x\left(p\right) < 0 & \wedge & y\left(p\right) \geqslant 0; \\
         			2 + \frac{\left|y\left(p\right)\right|}{d\left(p\right)} & \text{dla} &
-        			x\left(p\right) < 0 & \wedge & y\left(p\right) < 0 \\
+        			x\left(p\right) < 0 & \wedge & y\left(p\right) < 0; \\
         			4 - \frac{\left|y\left(p\right)\right|}{d\left(p\right)} & \text{dla} &
-        			x\left(p\right) \geqslant 0 & \wedge & y\left(p\right) < 0
+        			x\left(p\right) \geqslant 0 & \wedge & y\left(p\right) < 0.
         		\end{array}
         	\right.
         \end{align}\\
@@ -107,7 +106,7 @@
         	d\left(p\right) = \left|x\left(p\right)\right| + \left|y\left(p\right)\right|
     \end{align}
     
-     W celu udowodnienia, że funkcja $\alpha\left(p\right)$ spełnia warunki \ref{eq:condition1} i \ref{eq:condition2} musimy wykazać, że funkcja $\gamma\left(\theta\right)$ (przedstawiona we wzorze \ref{eq:gamma}), która stanowi przekształcenie funkcji $\alpha\left(p\right)$, takie że jest w pełni zależna od wartości $\theta$, a wartości $x\left(p\left(\theta\right)\right)$ oraz $y\left(p\left(\theta\right)\right)$ są określone zgodnie ze wzorem \ref{eq:ptheta}, jest rosnąca w każdym swoim przedziale.
+     W celu udowodnienia, że funkcja $\alpha\left(p\right)$ spełnia warunki \ref{eq:condition1} i \ref{eq:condition2}, musimy wykazać, że funkcja $\gamma\left(\theta\right)$ (przedstawiona we wzorze \ref{eq:gamma}), która stanowi przekształcenie funkcji $\alpha\left(p\right)$ takie, że jest w pełni zależna od wartości $\theta$, a wartości $x\left(p\left(\theta\right)\right)$ oraz $y\left(p\left(\theta\right)\right)$ są określone zgodnie ze wzorem \ref{eq:ptheta}, jest rosnąca w każdym swoim przedziale.
      \begin{align}\label{eq:gamma}
         	\gamma\left(\theta\right) = \alpha\left(p\left(\theta\right)\right)
      \end{align}
@@ -120,7 +119,7 @@
      
     
 
-     Należy zauważyć, że poszczególne przypadki opisane we wzorze \ref{eq:alpha1} dzielą układ współrzędnych na cztery ćwiartki. Zatem z rysunku \ref{fig:axis} wynikają zależności:
+     Należy zauważyć, że poszczególne przypadki opisane we wzorze \ref{eq:alpha1} dzielą układ współrzędnych na cztery ćwiartki. Zatem z rysunku \ref{fig:axis} wynikają zależności
      \ref{eq:xytotheta1}, 
      \ref{eq:xytotheta2}, 
      \ref{eq:xytotheta3} oraz
@@ -144,24 +143,23 @@
   		2\pi
   	\right)
     \end{align}
-    
-    Zatem w celu udowodnienia spełnienia warunków \ref{eq:condition1} i \ref{eq:condition2} przez funkcję $\alpha\left(p\right)$ (\ref{eq:alpha1}) należy udowodnić, że funkcja $\gamma\left(\theta\right)$ (\ref{eq:gamma}) jest rosnąca (jej pochodna jest większa od zera) we wszystkich przedziałach opisanych w zależnościach: 
-    \ref{eq:xytotheta1}, 
+    Zatem w celu udowodnienia spełnienia warunków \ref{eq:condition1} i \ref{eq:condition2} przez funkcję $\alpha\left(p\right)$ (\ref{eq:alpha1}) należy udowodnić, że funkcja $\gamma\left(\theta\right)$ (\ref{eq:gamma}) jest rosnąca (jej pochodna jest większa od zera) we wszystkich przedziałach opisanych w zależnościach
+     \ref{eq:xytotheta1}, 
      \ref{eq:xytotheta2}, 
      \ref{eq:xytotheta3} oraz
      \ref{eq:xytotheta4}.
     
-    Obliczenia dla tych czterech przedziałów przedstawiają się w następujący sposób. Dla każdego z przedziałów możliwe było uproszczenie funkcji $d\left(p\right)$, tak aby pozbyć się modułu, przez co różniczkowanie funkcji $\gamma\left(\theta\right)$ było łatwiejsze.
+    Obliczenia dla tych czterech przedziałów przedstawiają się w następujący sposób. Dla każdego z przedziałów możliwe jest uproszczenie funkcji $d\left(p\right)$, tak aby pozbyć się modułu, przez co różniczkowanie funkcji $\gamma\left(\theta\right)$ staje się łatwiejsze.
  
     \input{\oneDirectory/main}
     
-    Z powyższych obliczeń wynika, że we wszystkich przedziałach z zależności:
+    Z powyższych obliczeń wynika, że we wszystkich przedziałach z zależności
     \ref{eq:xytotheta1}, 
      \ref{eq:xytotheta2}, 
      \ref{eq:xytotheta3} oraz
-     \ref{eq:xytotheta4} funkcja $\gamma\left(\theta\right)$ ma dodatnią pochodną, a tym samym jest rosnąca we wszystkich przedziałach oraz każda z wartości osiąganych w przedziale jest większa od każdej wartości z poprzedniego przedziału, tym samym funkcja $\alpha\left(p\right)$ spełnia warunki \ref{eq:condition1} i \ref{eq:condition2}.
+     \ref{eq:xytotheta4} funkcja $\gamma\left(\theta\right)$ ma dodatnią pochodną, a tym samym jest rosnąca we wszystkich przedziałach, oraz każda z wartości osiąganych w przedziale jest większa od każdej wartości z poprzedniego przedziału, a tym samym funkcja $\alpha\left(p\right)$ spełnia warunki \ref{eq:condition1} i \ref{eq:condition2}.
      
-     Postać funkcji $\gamma\left(\theta\right)$ może być opisana wzorem \ref{eq:gammaeq}, a wykres jej przebiegu, przedstawiony na rysunku \ref{fig:gamma}, wyraźnie potwierdza jej rosnącą monotoniczność we wszystkich przedziałach.
+     Postać funkcji $\gamma\left(\theta\right)$ może być opisana wzorem \ref{eq:gammaeq} a wykres jej przebiegu, przedstawiony na rysunku \ref{fig:gamma} wyraźnie potwierdza jej rosnącą monotoniczność we wszystkich przedziałach.
         \begin{align}\label{eq:gammaeq}
         	\gamma\left(
         		\theta
@@ -247,14 +245,14 @@
         \section{Otoczka wypukła wielokąta prostego}
         \section{Redukcja zbioru punktów do wielokąta prostego}
     \chapter{Zastosowania} 
-    Istotnym, jeśli nie najistotniejszym zagadnieniem dotyczącym otoczek wypukłych są ich zastosowania. Już od kilkudziesięciu lat problem ten temat znajduje swoje użycie we wielu dziedzinach kombinatoryki i informatyki. Dla przykładu problem sortowania elementów liczbowych listy można sprowadzić do problemu znalezienia otoczki wypukłej. W związku z czym rozwiązanie tego problemu może pomóc w rozwiązaniu innych problemów w bardziej symboliczny i graficzny sposób.
+    Istotnym, jeśli nie najistotniejszym zagadnieniem dotyczącym otoczek wypukłych są ich zastosowania. Już od kilkudziesięciu lat problem ten temat znajduje swoje użycie w wielu dziedzinach kombinatoryki i informatyki. Dla przykładu problem sortowania elementów liczbowych listy można sprowadzić do problemu znalezienia otoczki wypukłej. W związku z tym rozwiązanie tego problemu może pomóc w rozwiązaniu innych problemów w bardziej symboliczny i graficzny sposób.
         \section{Generalizacja kartograficzna}
         W celu jak najbardziej informatywnego i niezłożonego przedstawienia danych geograficznych w sposób graficzny potrzebne jest zastosowanie algorytmu generalizującego informacje.
 		\section{Grafika komputerowa}
-		Obiekty wykorzystywane w grafice komputerowej często mogą charakteryzować się skomplikowanymi kształtami. Im bardziej skomplikowany kształt tym więcej mocy obliczeniowej potrzebne będzie w celu wykonania danej operacji na tym kształcie. W niektórych przypadkach do uproszczenia graficznego danego obiektu używa się otoczki wypukłej jego kształtu. Ze względu na fakt, iż otoczka wypukła wielokąta zawsze będzie miała liczbę wierzchołków mniejszą lub równą liczbie wierzchołków samego wielokąta, powstała otoczka może posłużyć do wykonania mniejszej liczby obliczeń przy wykonywaniu operacji na danym obiekcie.
+		Obiekty wykorzystywane w grafice komputerowej często mogą charakteryzować się skomplikowanymi kształtami. Im bardziej skomplikowany kształt, tym więcej mocy obliczeniowej potrzeba w celu wykonania danej operacji na tym kształcie. W niektórych przypadkach do uproszczenia graficznego danego obiektu używa się otoczki wypukłej jego kształtu. Ze względu na fakt, iż otoczka wypukła wielokąta zawsze będzie miała liczbę wierzchołków mniejszą lub równą liczbie wierzchołków samego wielokąta, powstała otoczka może posłużyć do wykonania mniejszej liczby obliczeń przy wykonywaniu operacji na danym obiekcie.
 		\section{Detekcja obiektów}
         \section{Wyznaczanie obwiedni sygnału}
-        Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
+        Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku, jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
         
         Algorytm wyznaczający otoczkę wypukłą wielokąta prostego może posłużyć znajdowaniu obwiedni sygnału.
         
