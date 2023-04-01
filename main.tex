@@ -41,10 +41,15 @@
 
     \chapter{Omówienie teoretyczne otoczki wypukłej na płaszczyźnie}
     Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób, aby wielokąt ten miał jak najmniejsze pole.    
-    \begin{center}
-    	\input{\tikzDirectory/hull.tikz}
-    \end{center}
-        
+    \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/hull.tikz}
+    			\caption{Otoczka wypukła na płaszczyźnie}\label{fig:example_hull}
+    			
+    			Źródło: opracowanie własne
+    	\end{center}
+    	\vspace{-0.8cm}
+    \end{figure}
     
     Dobrą reprezentacją otoczki wypukłej w świecie fizycznym może być grupa gwoździ przybita do płaskiej powierzchni i następnie opleciona ciasno sznurkiem. Gwoździe stykające się ze sznurkiem stanowić będą wierzchołki otoczki wypukłej tej grupy gwoździ.
         \section{Otoczka wypukła zbioru punktów}
@@ -55,6 +60,8 @@
         	\begin{center}
     			\input{\tikzDirectory/axis.tikz}
     			\caption{Punkt na układzie współrzędnych}\label{fig:axis}
+    			
+    			Źródło: opracowanie własne
     	\end{center}
     	\end{figure}\vspace{-8 mm}\\
     	Gdzie poszczególne symbole oznaczają:\\
@@ -232,12 +239,21 @@
         	\begin{center}
     			\input{\tikzDirectory/gamma.tikz}
     			\caption{Wykres funkcji $\gamma\left(\theta\right)$ }\label{fig:gamma}
+    			
+    			Źródło: opracowanie własne
     	\end{center}
     	\end{figure}\vspace{-8 mm}\\
        
               
         \subsection{Algorytm Grahama}
-        \input{\tikzDirectory/graham.tikz}
+        \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/graham.tikz}
+    			\caption{Algorytm Grahama}\label{fig:graham}
+    			
+    			Źródło: opracowanie własne
+    	\end{center}
+    	\end{figure}\vspace{-8 mm}
        
         \subsection{Algorytm Jarvisa}
         
