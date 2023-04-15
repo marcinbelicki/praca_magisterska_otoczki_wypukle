@@ -3,6 +3,7 @@
 \newcommand*{\tikzDirectory}{\includesDirectory/tikz}
 \newcommand*{\proovesDirectory}{\includesDirectory/prooves}
 \newcommand*{\oneDirectory}{\proovesDirectory/one}
+\newcommand*{\listingsDirectory}{\includesDirectory/listings}
 
 
 \input{\settingsDirectory/geometry}
@@ -11,7 +12,7 @@
 \input{\settingsDirectory/page_number}
 \input{\settingsDirectory/table_of_contents}
 \input{\settingsDirectory/chapters}
-
+\input{\settingsDirectory/listings}
 
 \input{\tikzDirectory/libraries}
 \input{\tikzDirectory/point}
@@ -246,15 +247,12 @@
        
               
         \subsection{Algorytm Grahama}
+        \null
         \begin{figure}[h!]
-        	\begin{center}
     			\input{\tikzDirectory/graham.tikz}
     			\caption{Algorytm Grahama}\label{fig:graham}
-    			
-    			Źródło: opracowanie własne
-    	\end{center}
-    	\end{figure}\vspace{-8 mm}
-       
+    	\end{figure}
+       \newpage
         \subsection{Algorytm Jarvisa}
         
         
@@ -271,6 +269,25 @@
         Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku, jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
         
         Algorytm wyznaczający otoczkę wypukłą wielokąta prostego może posłużyć znajdowaniu obwiedni sygnału.
+        
+   \chapter{Implementacja w języku Scala}
+   		\section{Pojęcia ogólne}
+   		W tej sekcji przedstawione zostaną listingi zawierające kod w języku Scala definiujący pojęcia potrzebne do implementacji poszczególnych algorytmów wyznaczających otoczkę wypukłą.
+   		\lstinputlisting[language=scala]{\listingsDirectory/Point.scala}
+   		\newpage
+   		\lstinputlisting[language=scala]{\listingsDirectory/PointsUtils.scala}
+   		\newpage
+   		\lstinputlisting[language=scala]{\listingsDirectory/OrientationOrdering.scala}
+   		\newpage
+   		\lstinputlisting[language=scala]{\listingsDirectory/ConvexHullAlgorithm.scala}
+   		\newpage
+   		\lstinputlisting[language=scala]{\listingsDirectory/AlgorithmTest.scala}
+   		\section{Algorytm Grahama}
+   		\lstinputlisting[language=scala]{\listingsDirectory/Graham.scala}
+   		\newpage
+   		\lstinputlisting[language=scala]{\listingsDirectory/PointsCycle.scala}
+   		\newpage
+   		\lstinputlisting[language=scala]{\listingsDirectory/GrahamAlgorithmTest.scala}
         
     \chapter{Dynamiczna otoczka wypukła}
     	\section{Algorytm}
