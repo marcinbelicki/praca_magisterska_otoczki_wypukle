@@ -259,6 +259,7 @@
         \section{Otoczka wypukła wielokąta prostego}
         \section{Redukcja zbioru punktów do wielokąta prostego}
     \chapter{Zastosowania} 
+%    as first chapter
     Istotnym, jeśli nie najistotniejszym zagadnieniem dotyczącym otoczek wypukłych są ich zastosowania. Już od kilkudziesięciu lat problem ten temat znajduje swoje użycie w wielu dziedzinach kombinatoryki i informatyki. Dla przykładu problem sortowania elementów liczbowych listy można sprowadzić do problemu znalezienia otoczki wypukłej. W związku z tym rozwiązanie tego problemu może pomóc w rozwiązaniu innych problemów w bardziej symboliczny i graficzny sposób.
         \section{Generalizacja kartograficzna}
         W celu jak najbardziej informatywnego i niezłożonego przedstawienia danych geograficznych w sposób graficzny potrzebne jest zastosowanie algorytmu generalizującego informacje.
@@ -282,13 +283,18 @@
    		\lstinputlisting[language=scala]{\listingsDirectory/ConvexHullAlgorithm.scala}
    		\newpage
    		\lstinputlisting[language=scala]{\listingsDirectory/AlgorithmTest.scala}
+   		\newpage
    		\section{Algorytm Grahama}
    		\lstinputlisting[language=scala]{\listingsDirectory/Graham.scala}
    		\newpage
    		\lstinputlisting[language=scala]{\listingsDirectory/PointsCycle.scala}
    		\newpage
    		\lstinputlisting[language=scala]{\listingsDirectory/GrahamAlgorithmTest.scala}
-        
+   		
+   		\section{Algorytm Jarvisa}
+   		Dzięki wykorzystaniu pattern matchingu dostępnego w Scali, możliwe jest przejrzyste zaimplementowanie algorytmu Jarvisa, który, jak widać jest dużo mniej skomplikowany od algorytmu Grahama. Mniejsze skomplikowanie implementacji wiąże się jednak z dużo większą złożonością obliczeniową.
+        \lstinputlisting[language=scala]{\listingsDirectory/Jarvis.scala}
+        \lstinputlisting[language=scala]{\listingsDirectory/JarvisAlgorithmTest.scala}
     \chapter{Dynamiczna otoczka wypukła}
     	\section{Algorytm}
     	\section{Implementacja w języku Scala} 
