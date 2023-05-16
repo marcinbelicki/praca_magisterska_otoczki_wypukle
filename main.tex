@@ -274,8 +274,20 @@
    \chapter{Implementacja w języku Scala}
    		\section{Pojęcia ogólne}
    		W tej sekcji przedstawione zostaną listingi zawierające kod w języku Scala definiujący pojęcia potrzebne do implementacji poszczególnych algorytmów wyznaczających otoczkę wypukłą.
+   		
+   		Klasa \texttt{Point} posłuży jako podstawowa klasa reprezentująca punkt w przestrzeni dwuwymiarowej. W celu łatwiejszego manipulowania danymi. Zostały w jej ramach zaimplementowane 3 metody pomocnicze.
+   		
+   		Odejmowanie (linia 7) - zaimplementowane jako odejmowanie od siebie odpowiadających sobie współrzędnych dwu punktów.
+   		
+   		Dodawanie (linia 8) - dodawanie do siebie odpowiadających sobie współrzędnych dwu punktów.
+   		
+   		Dzielenie przez skalar (linia 9) - zaimplementowane jako dzielenie obu współrzędnych przez wskazaną liczbę. Zaimplementowane dzięki użyciu domniemanemu argumentowi \texttt{numeric: Numeric[T]}. W języku Scala tego typu konstrukcja umożliwia korzystanie z metody \texttt{/} w tedy i tylko wtedy jeśli zaimportowany zostanie do aktualnego kontekstu obiekt typu \texttt{Numeric[T]}. Domyślnie typ ten jest zaimplementowany dla \texttt{T} będącym jednym z podstawowych typów liczbowych: \lstinline[language=scala]{Float}, \lstinline[language=scala]{Int}, \lstinline[language=scala]{Double} etc. Więc w domyśle tego typu konstrukcja służy niejako ,,udowodnieniu'', że wskazywany argument jest w istocie liczbą.
+   		
    		\lstinputlisting[language=scala]{\listingsDirectory/Point.scala}
    		\newpage
+   		Kolejnym istotnym elementem wykorzystanym w implementacji algorytmów wyznaczających otoczkę wypukłą zbioru punktów na płaszczyźnie są metody wyliczające określone właściwości punktów.
+   		
+   		Metoda \lstinline[language=scala]{calculateCentroid(points: Points): Points} (linia 11) wyznacza centroid zbioru punktów \lstinline[language=scala]{points}.
    		\lstinputlisting[language=scala]{\listingsDirectory/PointsUtils.scala}
    		\newpage
    		\lstinputlisting[language=scala]{\listingsDirectory/OrientationOrdering.scala}
