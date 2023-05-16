@@ -288,6 +288,13 @@
    		Kolejnym istotnym elementem wykorzystanym w implementacji algorytmów wyznaczających otoczkę wypukłą zbioru punktów na płaszczyźnie są metody wyliczające określone właściwości punktów.
    		
    		Metoda \lstinline[language=scala]{calculateCentroid(points: Points): Points} (linia 11) wyznacza centroid zbioru punktów \lstinline[language=scala]{points}.
+   		
+   		Metoda \lstinline[language=scala]{distanceFromCenterSquared(p: Point): Double} wyznacza kwadrat odległości wskazanego punktu od środka układu współrzędnych.
+   		
+   		Na podstawie wyżej wymienionej metody zostały zaimplementowane dwie metody związane z odległością między punktami.
+   		
+   		Metoda 
+   		
    		\lstinputlisting[language=scala]{\listingsDirectory/PointsUtils.scala}
    		\newpage
    		\lstinputlisting[language=scala]{\listingsDirectory/OrientationOrdering.scala}
