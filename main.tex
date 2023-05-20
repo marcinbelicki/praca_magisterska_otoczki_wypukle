@@ -289,11 +289,22 @@
    		
    		Metoda \lstinline[language=scala]{calculateCentroid(points: Points): Points} (linia 11) wyznacza centroid zbioru punktów \lstinline[language=scala]{points}.
    		
-   		Metoda \lstinline[language=scala]{distanceFromCenterSquared(p: Point): Double} wyznacza kwadrat odległości wskazanego punktu od środka układu współrzędnych.
+   		Metoda \lstinline[language=scala]{distanceFromCenterSquared(p: Point): Double} (linia 17) wyznacza kwadrat odległości wskazanego punktu od środka układu współrzędnych.
    		
-   		Na podstawie wyżej wymienionej metody zostały zaimplementowane dwie metody związane z odległością między punktami.
+   		Na podstawie wyżej wymienionej metody zostały zaimplementowane trzy metody związane z odległością między punktami.
    		
-   		Metoda 
+   		Metoda \lstinline[language=scala]{distanceSquared(a: Point, b: Point): Double} (linia 13) wyznacza kwadrat odległości pomiędzy dwoma punktami.
+   		
+   		Metoda \lstinline[language=scala]{distanceFromCenter(p: Point): Double} (linia 19) wyznacza odległość od środka układu współrzędnych.
+   		
+   		Metoda \lstinline[language=scala]{distance(a: Point, b: Point): Double} (linia 15) wyznacza odległość pomiędzy dwoma punktami.
+
+		W ramach obiektu \lstinline[language=scala]{PointsUtils} zostały również zaimplementowane metody służące do wyznaczania wartości umożliwiających sortowanie punktów względem kąta występującego pomiędzy horyzontalną osią układu współrzędnych, a wektorem łączącym początek układu współrzędnych z punktem (kąt $\theta$ zaznaczony na rysunku \ref{fig:axis}).
+		
+		Metoda \lstinline[language=scala]{phase(p: Point): Double} wyznacza dokładną wartość szukanego kąta. Matematycznie ta funkcja została zapisana we wzorze \ref{eq:theta}.
+		
+		Metoda \lstinline[language=scala]{alpha(p: Point): Double} wyznacza wartość umożliwiającą porównanie kąta dla wskazanego punktu z innymi punktami. Matematycznie ta funkcja została zapisana we wzorze \ref{eq:alpha1}.
+	
    		
    		\lstinputlisting[language=scala]{\listingsDirectory/PointsUtils.scala}
    		\newpage
