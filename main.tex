@@ -25,11 +25,13 @@
 \begin{document}
 
 \newcommand{\alignspace}{\vspace{- 3pt}}
+\renewcommand{\thelstlisting}{\Roman{chapter}.\arabic{lstlisting}}
 \setlength{\abovedisplayskip}{0ex}
 \setlength{\belowdisplayskip}{0ex}
 \setlength{\abovedisplayshortskip}{0ex}
 \setlength{\belowdisplayshortskip}{0ex}
 \setlength{\jot}{1.5ex}
+
 
     \thispagestyle{empty}
     \begin{center}
@@ -275,43 +277,43 @@
    		\section{Pojęcia ogólne}
    		W tej sekcji przedstawione zostaną listingi zawierające kod w języku Scala definiujący pojęcia potrzebne do implementacji poszczególnych algorytmów wyznaczających otoczkę wypukłą.
    		
-   		Klasa \texttt{Point} posłuży jako podstawowa klasa reprezentująca punkt w przestrzeni dwuwymiarowej. W celu łatwiejszego manipulowania danymi. Zostały w jej ramach zaimplementowane 3 metody pomocnicze.
+   		Klasa \texttt{Point} (Listing \ref{lst:point}: linia 4) posłuży jako podstawowa klasa reprezentująca punkt w przestrzeni dwuwymiarowej. W celu łatwiejszego manipulowania danymi. Zostały w jej ramach zaimplementowane 3 metody pomocnicze.
    		
-   		Odejmowanie (linia 7) - zaimplementowane jako odejmowanie od siebie odpowiadających sobie współrzędnych dwu punktów.
+   		Odejmowanie (Listing \ref{lst:point}: linia 7) - zaimplementowane jako odejmowanie od siebie odpowiadających sobie współrzędnych dwu punktów.
    		
-   		Dodawanie (linia 8) - dodawanie do siebie odpowiadających sobie współrzędnych dwu punktów.
+   		Dodawanie (Listing \ref{lst:point}: linia 8) - dodawanie do siebie odpowiadających sobie współrzędnych dwu punktów.
    		
-   		Dzielenie przez skalar (linia 9) - zaimplementowane jako dzielenie obu współrzędnych przez wskazaną liczbę. Zaimplementowane dzięki użyciu domniemanemu argumentowi \scala{numeric: Numeric[T]}. W języku Scala tego typu konstrukcja umożliwia korzystanie z metody \scala{/} w tedy i tylko wtedy jeśli zaimportowany zostanie do aktualnego kontekstu obiekt typu \scala{Numeric[T]}. Domyślnie typ ten jest zaimplementowany dla \scala{T} będącym jednym z podstawowych typów liczbowych: \scala{Float}, \scala{Int}, \scala{Double} etc. Więc w domyśle tego typu konstrukcja służy niejako ,,udowodnieniu'', że wskazywany argument jest w istocie liczbą.
+   		Dzielenie przez skalar (Listing \ref{lst:point}: linia 9) - zaimplementowane jako dzielenie obu współrzędnych przez wskazaną liczbę. Zaimplementowane dzięki użyciu domniemanemu argumentowi \scala{numeric: Numeric[T]}. W języku Scala tego typu konstrukcja umożliwia korzystanie z metody \scala{/} w tedy i tylko wtedy jeśli zaimportowany zostanie do aktualnego kontekstu obiekt typu \scala{Numeric[T]}. Domyślnie typ ten jest zaimplementowany dla \scala{T} będącym jednym z podstawowych typów liczbowych: \scala{Float}, \scala{Int}, \scala{Double} etc. Więc w domyśle tego typu konstrukcja służy niejako ,,udowodnieniu'', że wskazywany argument jest w istocie liczbą.
    		
-   		\lstinputlisting[language=scala]{\listingsDirectory/Point.scala}
+   		\lstinputlisting[language=scala, caption={Point.scala}, label={lst:point}]{\listingsDirectory/Point.scala}
    		Kolejnym istotnym elementem wykorzystanym w implementacji algorytmów wyznaczających otoczkę wypukłą zbioru punktów na płaszczyźnie są metody wyliczające określone właściwości punktów.
    		
-   		Metoda \scala{calculateCentroid(points: Points): Points} (linia 11) wyznacza centroid zbioru punktów \scala{points}.
+   		Metoda \scala{calculateCentroid(points: Points): Points} (Listing \ref{lst:pointsutils}: linia 11) wyznacza centroid zbioru punktów \scala{points}.
    		
-   		Metoda \scala{distanceFromCenterSquared(p: Point): Double} (linia 17) wyznacza kwadrat odległości wskazanego punktu od środka układu współrzędnych.
+   		Metoda \scala{distanceFromCenterSquared(p: Point): Double} (Listing \ref{lst:pointsutils}: linia 17) wyznacza kwadrat odległości wskazanego punktu od środka układu współrzędnych.
    		
    		Na podstawie wyżej wymienionej metody zostały zaimplementowane trzy metody związane z odległością między punktami.
    		
-   		Metoda \scala{distanceSquared(a: Point, b: Point): Double} (linia 13) wyznacza kwadrat odległości pomiędzy dwoma punktami.
+   		Metoda \scala{distanceSquared(a: Point, b: Point): Double} (Listing \ref{lst:pointsutils}: linia 13) wyznacza kwadrat odległości pomiędzy dwoma punktami.
    		
-   		Metoda \scala{distanceFromCenter(p: Point): Double} (linia 19) wyznacza odległość od środka układu współrzędnych.
+   		Metoda \scala{distanceFromCenter(p: Point): Double} (Listing \ref{lst:pointsutils}: linia 19) wyznacza odległość od środka układu współrzędnych.
    		
-   		Metoda \scala{distance(a: Point, b: Point): Double} (linia 15) wyznacza odległość pomiędzy dwoma punktami.
+   		Metoda \scala{distance(a: Point, b: Point): Double} (Listing \ref{lst:pointsutils}: linia 15) wyznacza odległość pomiędzy dwoma punktami.
 
-		W ramach obiektu \scala{PointsUtils} zostały również zaimplementowane metody służące do wyznaczania wartości umożliwiających sortowanie punktów względem kąta występującego pomiędzy horyzontalną osią układu współrzędnych, a wektorem łączącym początek układu współrzędnych z punktem (kąt $\theta$ zaznaczony na rysunku \ref{fig:axis}).
+		W ramach obiektu \scala{PointsUtils} (Listing \ref{lst:pointsutils}: linia 5) zostały również zaimplementowane metody służące do wyznaczania wartości umożliwiających sortowanie punktów względem kąta występującego pomiędzy horyzontalną osią układu współrzędnych, a wektorem łączącym początek układu współrzędnych z punktem (kąt $\theta$ zaznaczony na rysunku \ref{fig:axis}).
 		
-		Metoda \scala{phase(p: Point): Double} wyznacza dokładną wartość szukanego kąta. Matematycznie ta funkcja została zapisana we wzorze \ref{eq:theta}.
+		Metoda \scala{phase(p: Point): Double} (Listing \ref{lst:pointsutils}: linia 21) wyznacza dokładną wartość szukanego kąta. Matematycznie ta funkcja została zapisana we wzorze \ref{eq:theta}.
 		
-		Metoda \scala{alpha(p: Point): Double} wyznacza wartość umożliwiającą porównanie kąta dla wskazanego punktu z innymi punktami. Matematycznie ta funkcja została zapisana we wzorze \ref{eq:alpha1}.
+		Metoda \scala{alpha(p: Point): Double} (Listing \ref{lst:pointsutils}: linia 32) wyznacza wartość umożliwiającą porównanie kąta dla wskazanego punktu z innymi punktami. Matematycznie ta funkcja została zapisana we wzorze \ref{eq:alpha1}.
    		
-   		\lstinputlisting[language=scala]{\listingsDirectory/PointsUtils.scala}
+   		\lstinputlisting[language=scala, caption={PointsUtils.scala}, label={lst:pointsutils}]{\listingsDirectory/PointsUtils.scala}
    		\newpage
    		
    		W celu zapewnienia odpowiedniego sortowania punktów został utworzony \scala{trait OrientationOrdering}. Język Scala umożliwia wykorzystywanie zaimplementowanie własnego obiektu \scala{Ordering[T]}, który będzie następnie używany w metodzie \scala{sorted} dla kolekcji \scala{C[T]}.
    		
-   	 	Trait \scala{OrientationOrdering} ma zaimplementowaną metodę \scala{compare(x: Point, y: Point)} w taki sposób, aby w pierwszej kolejności porównywane były wartości funkcji reprezentujących fazę tych punktów, a następnie porównywane wartości funkcji reprezentujących odległość od środka układu współrzędnych.
+   	 	Trait \scala{OrientationOrdering} (linia 6) ma zaimplementowaną metodę \scala{compare(x: Point, y: Point)} w taki sposób, aby w pierwszej kolejności porównywane były wartości funkcji reprezentujących fazę tych punktów, a następnie porównywane wartości funkcji reprezentujących odległość od środka układu współrzędnych.
    		
-   		\lstinputlisting[language=scala]{\listingsDirectory/OrientationOrdering.scala}
+   		\lstinputlisting[language=scala,caption={OrientationOrdering.scala},captionpos=b]{\listingsDirectory/OrientationOrdering.scala}
    		\newpage
    		\lstinputlisting[language=scala]{\listingsDirectory/ConvexHullAlgorithm.scala}
    		\newpage
