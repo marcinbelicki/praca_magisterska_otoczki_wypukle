@@ -22,10 +22,14 @@
 \input{\tikzDirectory/randomVertices}
 \input{\tikzDirectory/arcs}
 
+
 \begin{document}
 
 \newcommand{\alignspace}{\vspace{- 3pt}}
-\renewcommand{\thelstlisting}{\Roman{chapter}.\arabic{lstlisting}}
+\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+\counterwithout{figure}{chapter}
+\counterwithout{lstlisting}{chapter}
+\counterwithout{equation}{chapter}
 \setlength{\abovedisplayskip}{0ex}
 \setlength{\belowdisplayskip}{0ex}
 \setlength{\abovedisplayshortskip}{0ex}
@@ -312,6 +316,12 @@
    		W celu zapewnienia odpowiedniego sortowania punktów został utworzony \scala{trait OrientationOrdering}. Język Scala umożliwia wykorzystywanie zaimplementowanie własnego obiektu \scala{Ordering[T]}, który będzie następnie używany w metodzie \scala{sorted} dla kolekcji \scala{C[T]}.
    		
    	 	Trait \scala{OrientationOrdering} (Listing \ref{lst:order}: linia 6) ma zaimplementowaną metodę \scala{compare(x: Point, y: Point)} (Listing \ref{lst:order}: linia 7) w taki sposób, aby w pierwszej kolejności porównywane były wartości funkcji reprezentujących fazę tych punktów, a następnie porównywane wartości funkcji reprezentujących odległość od środka układu współrzędnych.
+   	 	
+   	 	W ramach \scala{OrientationOrdering} zostały zaimplementowane dwa obiekty.
+   	 	
+   	 	Obiekt \scala{Exact} (Listing \ref{lst:order}: linia 19) służy do dokładnego porównania fazy punktów, wyznaczanej ze wzoru \ref{eq:theta} oraz odległości od środka układu współrzędnych. 
+   	 	
+   	 	Obiekt \scala{Indicator} (Listing \ref{lst:order}: linia 24) służy do porównywania fazy punktów za pomocą funkcji wyznaczanej ze wzoru \ref{eq:alpha1}.
    		
    		\lstinputlisting[language=scala,caption={OrientationOrdering.scala},captionpos=b, label={lst:order}]{\listingsDirectory/OrientationOrdering.scala}
    		\newpage
