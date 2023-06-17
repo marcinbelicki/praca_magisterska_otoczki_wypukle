@@ -311,25 +311,25 @@
    		
    		W celu zapewnienia odpowiedniego sortowania punktów został utworzony \scala{trait OrientationOrdering}. Język Scala umożliwia wykorzystywanie zaimplementowanie własnego obiektu \scala{Ordering[T]}, który będzie następnie używany w metodzie \scala{sorted} dla kolekcji \scala{C[T]}.
    		
-   	 	Trait \scala{OrientationOrdering} (linia 6) ma zaimplementowaną metodę \scala{compare(x: Point, y: Point)} w taki sposób, aby w pierwszej kolejności porównywane były wartości funkcji reprezentujących fazę tych punktów, a następnie porównywane wartości funkcji reprezentujących odległość od środka układu współrzędnych.
+   	 	Trait \scala{OrientationOrdering} (Listing \ref{lst:order}: linia 6) ma zaimplementowaną metodę \scala{compare(x: Point, y: Point)} (Listing \ref{lst:order}: linia 7) w taki sposób, aby w pierwszej kolejności porównywane były wartości funkcji reprezentujących fazę tych punktów, a następnie porównywane wartości funkcji reprezentujących odległość od środka układu współrzędnych.
    		
-   		\lstinputlisting[language=scala,caption={OrientationOrdering.scala},captionpos=b]{\listingsDirectory/OrientationOrdering.scala}
+   		\lstinputlisting[language=scala,caption={OrientationOrdering.scala},captionpos=b, label={lst:order}]{\listingsDirectory/OrientationOrdering.scala}
    		\newpage
-   		\lstinputlisting[language=scala]{\listingsDirectory/ConvexHullAlgorithm.scala}
+   		\lstinputlisting[language=scala,caption={ConvexHullAlgorithm.scala},captionpos=b]{\listingsDirectory/ConvexHullAlgorithm.scala}
    		\newpage
-   		\lstinputlisting[language=scala]{\listingsDirectory/AlgorithmTest.scala}
+   		\lstinputlisting[language=scala,caption={AlgorithmTest.scala},captionpos=b]{\listingsDirectory/AlgorithmTest.scala}
    		\newpage
    		\section{Algorytm Grahama}
-   		\lstinputlisting[language=scala]{\listingsDirectory/Graham.scala}
+   		\lstinputlisting[language=scala,caption={Graham.scala},captionpos=b]{\listingsDirectory/Graham.scala}
    		\newpage
-   		\lstinputlisting[language=scala]{\listingsDirectory/PointsCycle.scala}
+   		\lstinputlisting[language=scala,caption={PointsCycle.scala},captionpos=b]{\listingsDirectory/PointsCycle.scala}
    		\newpage
-   		\lstinputlisting[language=scala]{\listingsDirectory/GrahamAlgorithmTest.scala}
+   		\lstinputlisting[language=scala,caption={GrahamAlgorithmTest.scala},captionpos=b]{\listingsDirectory/GrahamAlgorithmTest.scala}
    		
    		\section{Algorytm Jarvisa}
    		Dzięki wykorzystaniu pattern matchingu dostępnego w Scali, możliwe jest przejrzyste zaimplementowanie algorytmu Jarvisa, który, jak widać jest dużo mniej skomplikowany od algorytmu Grahama. Mniejsze skomplikowanie implementacji wiąże się jednak z dużo większą złożonością obliczeniową.
-        \lstinputlisting[language=scala]{\listingsDirectory/Jarvis.scala}
-        \lstinputlisting[language=scala]{\listingsDirectory/JarvisAlgorithmTest.scala}
+        \lstinputlisting[language=scala,caption={Jarvis.scala},captionpos=b]{\listingsDirectory/Jarvis.scala}
+        \lstinputlisting[language=scala,caption={JarvisAlgorithmTest.scala},captionpos=b]{\listingsDirectory/JarvisAlgorithmTest.scala}
     \chapter{Dynamiczna otoczka wypukła}
     	\section{Algorytm}
     	\section{Implementacja w języku Scala} 
