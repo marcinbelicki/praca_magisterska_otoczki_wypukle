@@ -13,6 +13,7 @@
 \input{\settingsDirectory/table_of_contents}
 \input{\settingsDirectory/chapters}
 \input{\settingsDirectory/listings}
+\input{\settingsDirectory/captions}
 
 \input{\tikzDirectory/libraries}
 \input{\tikzDirectory/point}
@@ -21,7 +22,6 @@
 \input{\tikzDirectory/pointAndLabel}
 \input{\tikzDirectory/randomVertices}
 \input{\tikzDirectory/arcs}
-
 
 \begin{document}
 
@@ -51,9 +51,7 @@
     \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/hull.tikz}
-    			\caption{Otoczka wypukła na płaszczyźnie}\label{fig:example_hull}
-    			
-    			Źródło: opracowanie własne
+    			\caption{Otoczka wypukła na płaszczyźnie\mysrc}\label{fig:example_hull}
     	\end{center}
     	\vspace{-0.8cm}
     \end{figure}
@@ -66,9 +64,7 @@
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/axis.tikz}
-    			\caption{Punkt na układzie współrzędnych}\label{fig:axis}
-    			
-    			Źródło: opracowanie własne
+    			\caption{Punkt na układzie współrzędnych\mysrc}\label{fig:axis}
     	\end{center}
     	\end{figure}\vspace{-8 mm}\\
     	Gdzie poszczególne symbole oznaczają:\\
@@ -245,9 +241,7 @@
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/gamma.tikz}
-    			\caption{Wykres funkcji $\gamma\left(\theta\right)$ }\label{fig:gamma}
-    			
-    			Źródło: opracowanie własne
+    			\caption{Wykres funkcji $\gamma\left(\theta\right)$\mysrc}\label{fig:gamma}
     	\end{center}
     	\end{figure}\vspace{-8 mm}\\
        
@@ -289,7 +283,7 @@
    		
    		Dzielenie przez skalar (Listing \ref{lst:point}: linia 9) - zaimplementowane jako dzielenie obu współrzędnych przez wskazaną liczbę. Zaimplementowane dzięki użyciu domniemanemu argumentowi \scala{numeric: Numeric[T]}. W języku Scala tego typu konstrukcja umożliwia korzystanie z metody \scala{/} w tedy i tylko wtedy jeśli zaimportowany zostanie do aktualnego kontekstu obiekt typu \scala{Numeric[T]}. Domyślnie typ ten jest zaimplementowany dla \scala{T} będącym jednym z podstawowych typów liczbowych: \scala{Float}, \scala{Int}, \scala{Double} etc. Więc w domyśle tego typu konstrukcja służy niejako ,,udowodnieniu'', że wskazywany argument jest w istocie liczbą.
    		
-   		\lstinputlisting[language=scala, caption={Point.scala}, label={lst:point}]{\listingsDirectory/Point.scala}
+   		\lstinputlisting[language=scala, caption={Point.scala\mysrc}, label={lst:point}]{\listingsDirectory/Point.scala}
    		Kolejnym istotnym elementem wykorzystanym w implementacji algorytmów wyznaczających otoczkę wypukłą zbioru punktów na płaszczyźnie są metody wyliczające określone właściwości punktów.
    		
    		Metoda \scala{calculateCentroid(points: Points): Points} (Listing \ref{lst:pointsutils}: linia 11) wyznacza centroid zbioru punktów \scala{points}.
