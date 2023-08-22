@@ -309,13 +309,23 @@ dr inż. Arkadiusz Mirakowski
         
         Należy też zwrócić uwagę, że otoczka wypukła wielokąta prostego zawiera w sobie wszystkie punkty należące do wewnętrznej powierzchni tego wielokąta. \cite{convexhullsimplepolygon} W związku z tym jeśli udowodni się, że dany punkt nie należy do wnętrza otoczki wypukłej będzie to implikowało, że punkt ten nie należy do wnętrza wielokąta prostego. Taka wiedza okazuje się być przydatna jeśli uwzględnimy dodatkowo fakt, że określanie czy punkt leży wewnątrz wielokąta wypukłego jest dużo łatwiejsze niż dla pozostałych wielokątów. \cite{heckbert1994graphics}
         
-        Dla przykładu rozpatrując obrys granic Polski (Rysunek \ref{fig:poland}; źródło współrzędnych obrysu: \cite{datahubCountryPolygons}) można zauważyć, że jego kształt jest bardzo skomplikowany. 
+        Dla przykładu rozpatrując obrys granic Polski (Rysunek \ref{fig:poland}; źródło współrzędnych obrysu: \cite{datahubCountryPolygons}) można zauważyć, że jego kształt jest bardzo skomplikowany. W istocie zawiera on 1336 krawędzi.
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/poland.tikz}
     			\caption{Obrys granic Polski\mysrc}\label{fig:poland}
     	    \end{center}
     	\end{figure}
+    	
+    	Natomiast otoczka wypukła obrysu granic Polski zawiera tylko 28 krawędzi i została przedstawiona na rysunku \ref{fig:poland_convex_hull}.
+    	  \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/poland_convex_hull.tikz}
+    			\caption{Otoczka wypukła obrysu granic Polski\mysrc}\label{fig:poland_convex_hull}
+    	    \end{center}
+    	\end{figure}
+    	
+    	W związku z tym, że złożoność obliczeniowa algorytmu sprawdzającego czy punkt należy do wnętrza danego wielokąta jest liniowa \cite{complex}, możliwe jest dużo szybsze wykluczenie punktów znajdujących się poza otoczką. 
 		\section{Grafika komputerowa}
 		Obiekty wykorzystywane w grafice komputerowej często mogą charakteryzować się skomplikowanymi kształtami. Im bardziej skomplikowany kształt, tym więcej mocy obliczeniowej potrzeba w celu wykonania danej operacji na tym kształcie. W niektórych przypadkach do uproszczenia graficznego danego obiektu używa się otoczki wypukłej jego kształtu. Ze względu na fakt, iż otoczka wypukła wielokąta zawsze będzie miała liczbę wierzchołków mniejszą lub równą liczbie wierzchołków samego wielokąta, powstała otoczka może posłużyć do wykonania mniejszej liczby obliczeń przy wykonywaniu operacji na danym obiekcie.
 		\section{Detekcja obiektów}
