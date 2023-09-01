@@ -309,7 +309,7 @@ dr inż. Arkadiusz Mirakowski
         
         Należy też zwrócić uwagę, że otoczka wypukła wielokąta prostego zawiera w sobie wszystkie punkty należące do wewnętrznej powierzchni tego wielokąta. \cite{convexhullsimplepolygon} W związku z tym jeśli udowodni się, że dany punkt nie należy do wnętrza otoczki wypukłej będzie to implikowało, że punkt ten nie należy do wnętrza wielokąta prostego. Taka wiedza okazuje się być przydatna jeśli uwzględnimy dodatkowo fakt, że określanie czy punkt leży wewnątrz wielokąta wypukłego jest dużo łatwiejsze niż dla pozostałych wielokątów. \cite{heckbert1994graphics}
         
-        Dla przykładu rozpatrując obrys granic Polski (Rysunek \ref{fig:poland}; źródło współrzędnych obrysu: \cite{datahubCountryPolygons}) można zauważyć, że jego kształt jest bardzo skomplikowany. W istocie zawiera on 1336 krawędzi.
+        Dla przykładu rozpatrując obrys granic Polski (Rysunek \ref{fig:poland}; źródło współrzędnych obrysu: \cite{datahubCountryPolygons}; współrzędne zgodnie z projekcją EPSG:2180 \cite{epsg2180}) można zauważyć, że jego kształt jest bardzo skomplikowany. W istocie zawiera on 1336 krawędzi.
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/poland.tikz}
@@ -333,7 +333,12 @@ dr inż. Arkadiusz Mirakowski
 		
 		Jednym z działań wykonywanych przez ludzkie zdolności poznawcze po zarejestrowaniu obrazu jest wybranie miejsca w obrazie o największym znaczeniu (z ludzkiego punktu widzenia) \cite{s23146450}. Niektóre z rozwiązań tego problemu w informatyce opierały się nie tylko na samych danych pochodzących z obrazu, ale również tworząc modele z uwzględnieniem danych statycznych z badań dotyczących ludzkich umiejętności poznawczych \cite{Borji_Cheng_Hou_Jiang_Li_2019}. Jednak spora część z nich opiera się na przetwarzaniu samych danych pozyskanych z obrazów, bez potrzeby dostarczania danych statystycznych. Aby komputer był w stanie wykonać tego typu operację potrzebny jest szereg złożonych obliczeniowo operacji \cite{detection, Borji_Cheng_Hou_Jiang_Li_2019}. 
 		
-		W celu zmniejszenia kosztu obliczeniowego tego typu procesu można wykonać preprocesowanie danych wejściowych. Jednym z nich może być wykorzystanie algorytmu wyznaczającego otoczkę wypukłą tak zwanych punktów kluczowych \cite{detection}. 
+		W celu zmniejszenia kosztu obliczeniowego tego typu procesu można wykonać preprocesowanie danych wejściowych. Jednym z nich może być wykorzystanie algorytmu wyznaczającego otoczkę wypukłą tak zwanych punktów kluczowych \cite{detection}. W celu znalezienia lokalizacji punktów kluczowych można skorzystać z wyznaczania lokalnej energii piksela za pomocą wzoru na wielopoziomową energię Harrisa \cite{detection, harris}. 
+		\begin{align}\label{eq:harris}  
+		 		
+        \end{align}
+		
+		
         \section{Wyznaczanie obwiedni sygnału}
         Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku, jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
         
