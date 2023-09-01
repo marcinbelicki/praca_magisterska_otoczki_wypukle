@@ -86,7 +86,7 @@ dr inż. Arkadiusz Mirakowski
   
     \chapterwithout{Wstęp}        
 
-    \chapter{Omówienie teoretyczne otoczki wypukłej na płaszczyźnie}
+    \chapter{Otoczka wypukła na płaszczyźnie}
     Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób, aby wielokąt ten miał jak najmniejsze pole.    
     \begin{figure}[h!]
         	\begin{center}
@@ -329,6 +329,11 @@ dr inż. Arkadiusz Mirakowski
 		\section{Grafika komputerowa}
 		Obiekty wykorzystywane w grafice komputerowej często mogą charakteryzować się skomplikowanymi kształtami. Im bardziej skomplikowany kształt, tym więcej mocy obliczeniowej potrzeba w celu wykonania danej operacji na tym kształcie. W niektórych przypadkach do uproszczenia graficznego danego obiektu używa się otoczki wypukłej jego kształtu. Ze względu na fakt, iż otoczka wypukła wielokąta zawsze będzie miała liczbę wierzchołków mniejszą lub równą liczbie wierzchołków samego wielokąta, powstała otoczka może posłużyć do wykonania mniejszej liczby obliczeń przy wykonywaniu operacji na danym obiekcie.
 		\section{Detekcja obiektów}
+		Proces analizowania obrazu przez ludzkie organy jest wyjątkowo złożony złożony \cite{BIEDERMAN198529}. W celu imitacji tego procesu w sposób algorytmiczny, zostały przeprowadzone liczne badania naukowe \cite{detection}. Dzięki temu zaproponowano wiele podejść rozwiązania tego problemu. Istotnym aspektem ze względów praktycznych tych pomysłów jest złożoność obliczeniowa ich implementacji.
+		
+		Jednym z działań wykonywanych przez ludzkie zdolności poznawcze po zarejestrowaniu obrazu jest wybranie miejsca w obrazie o największym znaczeniu (z ludzkiego punktu widzenia) \cite{s23146450}. Niektóre z rozwiązań tego problemu w informatyce opierały się nie tylko na samych danych pochodzących z obrazu, ale również tworząc modele z uwzględnieniem danych statycznych z badań dotyczących ludzkich umiejętności poznawczych \cite{Borji_Cheng_Hou_Jiang_Li_2019}. Jednak spora część z nich opiera się na przetwarzaniu samych danych pozyskanych z obrazów, bez potrzeby dostarczania danych statystycznych. Aby komputer był w stanie wykonać tego typu operację potrzebny jest szereg złożonych obliczeniowo operacji \cite{detection, Borji_Cheng_Hou_Jiang_Li_2019}. 
+		
+		W celu zmniejszenia kosztu obliczeniowego tego typu procesu można wykonać preprocesowanie danych wejściowych. Jednym z nich może być wykorzystanie algorytmu wyznaczającego otoczkę wypukłą tak zwanych punktów kluczowych \cite{detection}. 
         \section{Wyznaczanie obwiedni sygnału}
         Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku, jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
         
