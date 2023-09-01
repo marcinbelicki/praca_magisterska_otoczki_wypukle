@@ -109,11 +109,11 @@ dr inż. Arkadiusz Mirakowski
     	\end{figure}\vspace{-8 mm}\\
     	Gdzie poszczególne symbole oznaczają:\\
     	\begin{tabular}{rcl}
-    	$p$ & - & rozpatrywany punkt\\
-    	$x\left( p \right)$ & - & odcięta punktu $p$\\
-    	$y\left( p \right)$ & - & rzędna punktu $p$\\
-    	$R$ & - & długość wektora wodzącego punktu $p$\\
-    	$\theta$ & - & kąt nachylenia wektora wodzącego punktu $p$ do osi $OX$
+    	$p$ & -- & rozpatrywany punkt\\
+    	$x\left( p \right)$ & -- & odcięta punktu $p$\\
+    	$y\left( p \right)$ & -- & rzędna punktu $p$\\
+    	$R$ & -- & długość wektora wodzącego punktu $p$\\
+    	$\theta$ & -- & kąt nachylenia wektora wodzącego punktu $p$ do osi $OX$
     	\end{tabular}\\
     	
     	Istotną komplikację z punktu widzenia obliczeń  w algorytmach może stanowić wyznaczenie wartości kąta $\theta$ (ze względu na potrzebę wykorzystania funkcji trygonometrycznych), którego dokładną wartość można wyliczyć za pomocą wzoru \ref{eq:theta}.\\
@@ -309,7 +309,7 @@ dr inż. Arkadiusz Mirakowski
         
         Należy też zwrócić uwagę, że otoczka wypukła wielokąta prostego zawiera w sobie wszystkie punkty należące do wewnętrznej powierzchni tego wielokąta. \cite{convexhullsimplepolygon} W związku z tym jeśli udowodni się, że dany punkt nie należy do wnętrza otoczki wypukłej będzie to implikowało, że punkt ten nie należy do wnętrza wielokąta prostego. Taka wiedza okazuje się być przydatna jeśli uwzględnimy dodatkowo fakt, że określanie czy punkt leży wewnątrz wielokąta wypukłego jest dużo łatwiejsze niż dla pozostałych wielokątów. \cite{heckbert1994graphics}
         
-        Dla przykładu rozpatrując obrys granic Polski (Rysunek \ref{fig:poland}; źródło współrzędnych obrysu: \cite{datahubCountryPolygons}; współrzędne zgodnie z projekcją EPSG:2180 \cite{epsg2180}) można zauważyć, że jego kształt jest bardzo skomplikowany. W istocie zawiera on 1336 krawędzi.
+        Dla przykładu rozpatrując obrys granic Polski (Rysunek \ref{fig:poland}; źródło współrzędnych obrysu: \cite{datahubCountryPolygons}; współrzędne przedstawione zgodnie z projekcją EPSG:2180 \cite{epsg2180} przy użyciu biblioteki GeoTools \cite{geotools}) można zauważyć, że jego kształt jest bardzo skomplikowany. W istocie zawiera on 1336 krawędzi.
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/poland.tikz}
@@ -333,10 +333,30 @@ dr inż. Arkadiusz Mirakowski
 		
 		Jednym z działań wykonywanych przez ludzkie zdolności poznawcze po zarejestrowaniu obrazu jest wybranie miejsca w obrazie o największym znaczeniu (z ludzkiego punktu widzenia) \cite{s23146450}. Niektóre z rozwiązań tego problemu w informatyce opierały się nie tylko na samych danych pochodzących z obrazu, ale również tworząc modele z uwzględnieniem danych statycznych z badań dotyczących ludzkich umiejętności poznawczych \cite{Borji_Cheng_Hou_Jiang_Li_2019}. Jednak spora część z nich opiera się na przetwarzaniu samych danych pozyskanych z obrazów, bez potrzeby dostarczania danych statystycznych. Aby komputer był w stanie wykonać tego typu operację potrzebny jest szereg złożonych obliczeniowo operacji \cite{detection, Borji_Cheng_Hou_Jiang_Li_2019}. 
 		
-		W celu zmniejszenia kosztu obliczeniowego tego typu procesu można wykonać preprocesowanie danych wejściowych. Jednym z nich może być wykorzystanie algorytmu wyznaczającego otoczkę wypukłą tak zwanych punktów kluczowych \cite{detection}. W celu znalezienia lokalizacji punktów kluczowych można skorzystać z wyznaczania lokalnej energii piksela za pomocą wzoru na wielopoziomową energię Harrisa \cite{detection, harris}. 
+		W celu zmniejszenia kosztu obliczeniowego tego typu procesu można wykonać preprocesowanie danych wejściowych. Jednym z nich może być wykorzystanie algorytmu wyznaczającego otoczkę wypukłą tak zwanych punktów kluczowych \cite{detection}. W celu znalezienia lokalizacji punktów kluczowych można skorzystać z wyznaczania lokalnej energii piksela za pomocą wzoru (\ref{eq:harris}) na wielopoziomową energię Harrisa \cite{detection, harris}. 
 		\begin{align}\label{eq:harris}  
-		 		
+			\textbf{E}_{WPH}\left(p\right) = \sum_{l=0}^{L}\textbf{R}^l\left(p\right)	 		
         \end{align}
+        Gdzie poszczególne symbole oznaczają:\\
+       \begin{tabular}{rcl}
+    	$p$ & -- & rozpatrywany piksel obrazu\\
+		$\textbf{R}^l\left(p\right)$ & -- & energia wyznaczona ze wzoru Harrisa dla $l$ - tego poziomu obrazu \\
+		$L$ & -- & \begin{minipage}[t]{126 mm}
+		liczba poziomów dla których ma być wyznaczona suma energii, przyjęte jako $L=5$ \cite{detection} 
+		\end{minipage}
+		\\
+    	\end{tabular}
+    	
+    	\begin{align}\label{eq:harris}  
+			\textbf{E}_{WPH}\left(p\right) = \sum_{l=0}^{L}\textbf{R}^l\left(p\right)	 		
+        \end{align}
+        Gdzie poszczególne symbole oznaczają:\\
+       \begin{tabular}{rcl}
+    	$p$ & -- & rozpatrywany piksel obrazu\\
+		$\textbf{R}^l\left(p\right)$ & -- & energia wyznaczona ze wzoru Harrisa dla $l$ - tego poziomu obrazu \
+    	\end{tabular}\\
+        
+        
 		
 		
         \section{Wyznaczanie obwiedni sygnału}
