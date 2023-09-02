@@ -335,29 +335,55 @@ dr inż. Arkadiusz Mirakowski
 		
 		W celu zmniejszenia kosztu obliczeniowego tego typu procesu można wykonać preprocesowanie danych wejściowych. Jednym z nich może być wykorzystanie algorytmu wyznaczającego otoczkę wypukłą tak zwanych punktów kluczowych \cite{detection}. W celu znalezienia lokalizacji punktów kluczowych można skorzystać z wyznaczania lokalnej energii piksela za pomocą wzoru (\ref{eq:harris}) na wielopoziomową energię Harrisa \cite{detection, harris}. 
 		\begin{align}\label{eq:harris}  
-			\textbf{E}_{WPH}\left(p\right) = \sum_{l=0}^{L}\textbf{R}^l\left(p\right)	 		
-        \end{align}
-        Gdzie poszczególne symbole oznaczają:\\
+			\textbf{E}_{WPH}\left(p\right) = \sum_{l=0}^{L}\textbf{R}\left(l\right)\left(p\right)	 		
+        \end{align}\\[-5 pt]
+        Gdzie poszczególne symbole oznaczają:\\[10 pt]
        \begin{tabular}{rcl}
     	$p$ & -- & rozpatrywany piksel obrazu\\
-		$\textbf{R}^l\left(p\right)$ & -- & energia wyznaczona ze wzoru Harrisa dla $l$ - tego poziomu obrazu \\
-		$L$ & -- & \begin{minipage}[t]{126 mm}
-		liczba poziomów dla których ma być wyznaczona suma energii, przyjęte jako $L=5$ \cite{detection} 
+		$\textbf{R}\left(l\right)\left(p\right)$ & -- &  \begin{minipage}[t]{123 mm} energia piksela $p$ wyznaczona ze wzoru Harrisa (\ref{eq:harris_single}) dla $l$ - tego poziomu obrazu \end{minipage} \\[20 pt] 
+		$L$ & -- & \begin{minipage}[t]{123 mm}
+		liczba poziomów dla których ma być wyznaczona suma energii, przyjęte jako $L=5$ \cite{detection}
 		\end{minipage}
-		\\
-    	\end{tabular}
-    	
-    	\begin{align}\label{eq:harris}  
-			\textbf{E}_{WPH}\left(p\right) = \sum_{l=0}^{L}\textbf{R}^l\left(p\right)	 		
-        \end{align}
-        Gdzie poszczególne symbole oznaczają:\\
-       \begin{tabular}{rcl}
-    	$p$ & -- & rozpatrywany piksel obrazu\\
-		$\textbf{R}^l\left(p\right)$ & -- & energia wyznaczona ze wzoru Harrisa dla $l$ - tego poziomu obrazu \
-    	\end{tabular}\\
-        
-        
 		
+    	\end{tabular}\\[15 pt]
+    	W celu wyznaczenia wielopoziomowej Harrisa dla danego piksela $p$ musimy znać też wzór (\ref{eq:harris_single}) na energię piksela $p$ dla pojedynczego poziomu $l$.
+    	\begin{align}\label{eq:harris_single}  
+		\textbf{R}\left(l\right)\left(p\right) =
+		\left|\textbf{M}\left(l\right)\left(p\right)\right| + k \cdot \mathrm{tr}\left(\textbf{M}\left(l\right)\left(p\right)\right)
+        \end{align}
+Gdzie poszczególne symbole oznaczają:\\[10 pt]
+        \begin{tabular}{rcl}
+    	$k$ & -- & współczynnik skalarny\\
+    	$\textbf{M}\left(l\right)\left(p\right)$ & -- & 
+    	\begin{minipage}[t]{121 mm}
+    	macierz autokorelacji dla danego piksela $p$ i poziomu obrazu $l$ wyznaczana ze wzoru \ref{eq:autocorelate} \cite{harrispptx, harris, detection}
+    	\end{minipage}\\[20 pt]
+    	$\mathrm{tr}\left(\textbf{A}\right)$ & -- & 
+    	\begin{minipage}[t]{121 mm}
+    	ślad macierzy $\textbf{A}$, czyli suma elementów należących do głównej przekątnej macierzy $\textbf{A}$, obliczany według wzoru \cite{matrixtrace}
+    	\end{minipage}
+    	\end{tabular}\\[10 pt]
+    	\begin{align}\label{eq:autocorelate}  
+		\textbf{M}\left(l\right)\left(p\right) =
+		\textbf{G}_{\sigma}
+		\cdot\left[
+		\begin{matrix}
+			\textbf{I}_x^2\left(l\right)\left(p\right) & \textbf{I}_x\left(l\right)\left(p\right) \cdot \textbf{I}_y\left(l\right)\left(p\right)\\
+			\textbf{I}_y\left(l\right)\left(p\right) \cdot \textbf{I}_x\left(l\right)\left(p\right) & \textbf{I}_y^2\left(l\right)\left(p\right)
+		\end{matrix}
+		\right]
+        \end{align}\\[10 pt]
+        Gdzie poszczególne symbole oznaczają:\\[10 pt]
+    	\begin{tabular}{rcl}
+    	$G_{\sigma}$ & -- & 
+    	\begin{minipage}[t]{123 mm}
+    	prostokątna macierz o liczbie kolumn 2 stanowiąca okno czasowe Gaussa o odchyleniu standardowym $\sigma$
+    	\end{minipage}\\[5 pt]
+    	$\textbf{M}\left(l\right)\left(p\right)$ & -- & 
+    	\begin{minipage}[t]{123 mm}
+    	macierz autokorelacji dla danego piksela $p$ i poziomu obrazu $l$ wyznaczana ze wzoru \ref{eq:autocorelate} \cite{harrispptx, harris, detection}
+    	\end{minipage}
+    	\end{tabular}\\[10 pt]
 		
         \section{Wyznaczanie obwiedni sygnału}
         Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku, jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
