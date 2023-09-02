@@ -83,9 +83,13 @@ dr inż. Arkadiusz Mirakowski
     \tableofcontents	
 
   
-    \chapterwithout{Wstęp}        
+    \chapterwithout{Wstęp}   
+    
+    Celem niniejszej pracy jest przedstawienie definicji otoczki wypukłej oraz algorytmów wykorzystywanych do jej wyznaczania. Porównanie będzie miało charakter teoretyczny (\ref{chap:theory}) oraz praktyczny (\ref{chap:practice}), gdzie dogłębnie została omówiona implementacja algorytmów w języku Scala. Od strony teoretycznej celem będzie znajdywanie i uzasadnianie rozwiązań, które pozwolą w jak najmniej złożony obliczeniowo sposób wyznaczyć otoczkę wypukłą. Przez co strona praktyczna powinna w założeniu odzwierciedlać w jakiś sposób założenia strony teoretycznej i jej celem będzie też niejako potwierdzenie teoretycznych założeń.
+    
+    Założeniem pracy jest także uzasadnienie istotności zagadnienia otoczek wypukłych we wielu dziedzinach mniej lub bardziej związanych z informatyką. Należą do nich między innymi: kartografia \cite{cartography}, detekcja istotnych obiektów \cite{detection}. Celem tej części będzie nie tylko wymienienie i opisanie tych pól nauki, ale również zbadanie jak wykorzystanie różnych algorytmów wpływa na wydajność konkretnych rozwiązań.
 
-    \chapter{Otoczka wypukła na płaszczyźnie}
+    \chapter{Otoczka wypukła na płaszczyźnie}\label{chap:theory}
     Otoczka wypukła zbioru punktów w swojej najbardziej podstawowej postaci jest wielokątem wypukłym obejmującym wszystkie punkty ze zbioru punktów leżących na płaszczyźnie w taki sposób, aby wielokąt ten miał jak najmniejsze pole.    
     \begin{figure}[h!]
         	\begin{center}
@@ -410,7 +414,7 @@ Gdzie poszczególne symbole oznaczają:\\[10 pt]
         
         Algorytm wyznaczający otoczkę wypukłą wielokąta prostego może posłużyć znajdowaniu obwiedni sygnału.
         
-   \chapter{Implementacja w języku Scala}
+   \chapter{Implementacja w języku Scala}\label{chap:practice}
    		\section{Pojęcia ogólne}
    		W tej sekcji przedstawione zostaną listingi zawierające kod w języku Scala definiujący pojęcia potrzebne do implementacji poszczególnych algorytmów wyznaczających otoczkę wypukłą.
    		
