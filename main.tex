@@ -369,7 +369,7 @@ Gdzie poszczególne symbole oznaczają:\\[10 pt]
     	\end{minipage}\\[20 pt]
     	$\mathrm{tr}\left(\textbf{A}\right)$ & -- & 
     	\begin{minipage}[t]{121 mm}
-    	ślad macierzy $\textbf{A}$, czyli suma elementów należących do głównej przekątnej macierzy $\textbf{A}$, obliczany według wzoru \cite{matrixtrace}
+    	ślad macierzy kwadratowej $\textbf{A}$, czyli suma elementów należących do głównej przekątnej macierzy $\textbf{A}$, obliczany według wzoru \ref{eq:matrixtrace} \cite{matrixtrace, matrixtrace2}
     	\end{minipage}
     	\end{tabular}\\[10 pt]
     	\begin{align}\label{eq:autocorelate}  
@@ -384,15 +384,26 @@ Gdzie poszczególne symbole oznaczają:\\[10 pt]
         \end{align}\\[10 pt]
         Gdzie poszczególne symbole oznaczają:\\[10 pt]
     	\begin{tabular}{rcl}
-    	$G_{\sigma}$ & -- & 
+    	$\textbf{G}_{\sigma}$ & -- & 
     	\begin{minipage}[t]{123 mm}
-    	prostokątna macierz o liczbie kolumn 2 stanowiąca okno czasowe Gaussa o odchyleniu standardowym $\sigma$
-    	\end{minipage}\\[5 pt]
-    	$\textbf{M}\left(l\right)\left(p\right)$ & -- & 
+    	prostokątna macierz o liczbie kolumn 2 stanowiąca okno czasowe Gaussa o odchyleniu standardowym $\sigma$; poszczególne elementy tej macierzy można wyznaczyć według wzoru \ref{eq:gaussianwin} \cite{detection, harris}\\[-10 pt]
+    	\end{minipage}\\
+    	$\textbf{I}_x\left(l\right)\left(p\right)$ & -- & 
     	\begin{minipage}[t]{123 mm}
-    	macierz autokorelacji dla danego piksela $p$ i poziomu obrazu $l$ wyznaczana ze wzoru \ref{eq:autocorelate} \cite{harrispptx, harris, detection}
+    	wartość pierwszej składowej gradientu $l$ - tego poziomu obrazu $\textbf{I}$ dla piksela $p$, obliczana według wzoru 
+    	\end{minipage}\\[25 pt]
+    	$\textbf{I}_y\left(l\right)\left(p\right)$ & -- & 
+    	\begin{minipage}[t]{123 mm}
+    	wartość drugiej składowej gradientu $l$ - tego poziomu obrazu $\textbf{I}$ dla piksela $p$, obliczana według wzoru
     	\end{minipage}
     	\end{tabular}\\[10 pt]
+    	\begin{align}	\label{eq:matrixtrace}
+    	\mathrm{tr}\left(\textbf{A}\right) = \sum_{i=1}^n\textbf{A}\left(i, i\right)
+    	\end{align}
+    	
+    	\begin{align}\label{eq:gaussianwin}
+    	\textbf{G}_{\sigma}\left(u, v\right) = \exp{\frac{-\left(u^2 + v^2\right)}{2\sigma^2}}
+    	\end{align}
 		
         \section{Wyznaczanie obwiedni sygnału}
         Sygnał to zapis informacji zmieniającej się w zależności od czasu. Taką informacją może być natężenie/napięcie prądu, natężenie pola elektromagnetycznego, dźwięk utworu muzycznego itd. W przypadku, jeśli zmienną informację da się  reprezentować w sposób liczbowy, możliwe jest graficzne przedstawienie sygnału. Zapisanie informacji w ten sposób może być łatwiejsze do interpretacji przez człowieka. Jednak w przypadku, gdy mamy do czynienia ze skomplikowanym przebiegiem, na
