@@ -37,7 +37,6 @@
 \setlength{\belowdisplayshortskip}{0ex}
 \setlength{\jot}{1.5ex}
 
-
     \thispagestyle{empty}
     \begin{adjustwidth}{-1cm}{0cm}
     \begin{center}
@@ -91,8 +90,9 @@ dr inż. Arkadiusz Mirakowski
     \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/hull.tikz}
-    			\caption{Otoczka wypukła na płaszczyźnie\mysrc}\label{fig:example_hull}
+    			\caption{Otoczka wypukła na płaszczyźnie}\label{fig:example_hull}
     	\end{center}
+    	\mysource
     	\vspace{-0.8cm}
     \end{figure}
     
@@ -104,8 +104,9 @@ dr inż. Arkadiusz Mirakowski
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/axis.tikz}
-    			\caption{Punkt na układzie współrzędnych\mysrc}\label{fig:axis}
-    	\end{center}
+    			\caption{Punkt na układzie współrzędnych}						\label{fig:axis}	
+    		\end{center}
+    	\mysource
     	\end{figure}\vspace{-8 mm}\\
     	Gdzie poszczególne symbole oznaczają:\\
     	\begin{tabular}{rcl}
@@ -281,19 +282,25 @@ dr inż. Arkadiusz Mirakowski
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/gamma.tikz}
-    			\caption{Wykres funkcji $\gamma\left(\theta\right)$\mysrc}\label{fig:gamma}
+    			\caption{Wykres funkcji $\gamma\left(\theta\right)$}\label{fig:gamma}
     	\end{center}
+    	\mysource
     	\end{figure}\vspace{-8 mm}\\
        
               
         \subsection{Algorytm Grahama}
-        \null
+        Jednym z ważniejszych algorytmów służących wyznaczaniu otoczki wypukłej zbioru punktów na płaszczyźnie jest algorytm Grahama.
+        \newpage
         \begin{figure}[h!]
+        		\begin{center}
     			\input{\tikzDirectory/graham.tikz}
     			\caption{Algorytm Grahama}\label{fig:graham}
+    			\end{center}
+    			\mysource
     	\end{figure}
-       \newpage
+        \newpage
         \subsection{Algorytm Jarvisa}
+        fsdfsdf
         
         
         \section{Otoczka wypukła wielokąta prostego}
@@ -313,16 +320,18 @@ dr inż. Arkadiusz Mirakowski
         \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/poland.tikz}
-    			\caption{Obrys granic Polski\mysrc}\label{fig:poland}
+    			\caption{Obrys granic Polski}\label{fig:poland}
     	    \end{center}
+    	   	\mysource 
     	\end{figure}
     	
     	Natomiast otoczka wypukła obrysu granic Polski zawiera tylko 28 krawędzi i została przedstawiona na rysunku \ref{fig:poland_convex_hull}.
     	  \begin{figure}[h!]
         	\begin{center}
     			\input{\tikzDirectory/poland_convex_hull.tikz}
-    			\caption{Otoczka wypukła obrysu granic Polski\mysrc}\label{fig:poland_convex_hull}
+    			\caption{Otoczka wypukła obrysu granic Polski}\label{fig:poland_convex_hull}
     	    \end{center}
+    	    \mysource
     	\end{figure}
     	
     	W związku z tym, że złożoność obliczeniowa algorytmu sprawdzającego czy punkt należy do wnętrza danego wielokąta jest liniowa \cite{complex}, możliwe jest dużo szybsze wykluczenie punktów znajdujących się poza otoczką. 
@@ -402,7 +411,8 @@ Gdzie poszczególne symbole oznaczają:\\[10 pt]
    		
    		Dzielenie przez skalar (Listing \ref{lst:point}: linia 9) - zaimplementowane jako dzielenie obu współrzędnych przez wskazaną liczbę. Zaimplementowane dzięki użyciu domniemanemu argumentowi \scala{numeric: Numeric[T]}. W języku Scala tego typu konstrukcja umożliwia korzystanie z metody \scala{/} w tedy i tylko wtedy jeśli zaimportowany zostanie do aktualnego kontekstu obiekt typu \scala{Numeric[T]}. Domyślnie typ ten jest zaimplementowany dla \scala{T} będącym jednym z podstawowych typów liczbowych: \scala{Float}, \scala{Int}, \scala{Double} etc. Więc w domyśle tego typu konstrukcja służy niejako ,,udowodnieniu'', że wskazywany argument jest w istocie liczbą.
    		
-   		\lstinputlisting[language=scala, caption={Point.scala\mysrc}, label={lst:point}]{\listingsDirectory/Point.scala}
+   		\lstinputlisting[language=scala, caption={Point.scala}, label={lst:point}]{\listingsDirectory/Point.scala}
+   		\listingsource
    		Kolejnym istotnym elementem wykorzystanym w implementacji algorytmów wyznaczających otoczkę wypukłą zbioru punktów na płaszczyźnie są metody wyliczające określone właściwości punktów.
    		
    		Metoda \scala{calculateCentroid(points: Points): Points} (Listing \ref{lst:pointsutils}: linia 11) wyznacza centroid zbioru punktów \scala{points}.
@@ -424,6 +434,7 @@ Gdzie poszczególne symbole oznaczają:\\[10 pt]
 		Metoda \scala{alpha(p: Point): Double} (Listing \ref{lst:pointsutils}: linia 32) wyznacza wartość umożliwiającą porównanie kąta dla wskazanego punktu z innymi punktami. Matematycznie ta funkcja została zapisana we wzorze \ref{eq:alpha1}.
    		
    		\lstinputlisting[language=scala, caption={PointsUtils.scala}, label={lst:pointsutils}]{\listingsDirectory/PointsUtils.scala}
+   		\listingsource
    		\newpage
    		
    		W celu zapewnienia odpowiedniego sortowania punktów został utworzony \scala{trait OrientationOrdering}. Język Scala umożliwia wykorzystywanie zaimplementowanie własnego obiektu \scala{Ordering[T]}, który będzie następnie używany w metodzie \scala{sorted} dla kolekcji \scala{C[T]}.
@@ -436,26 +447,36 @@ Gdzie poszczególne symbole oznaczają:\\[10 pt]
    	 	
    	 	Obiekt \scala{Indicator} (Listing \ref{lst:order}: linia 24) służy do porównywania fazy punktów za pomocą funkcji wyznaczanej ze wzoru \ref{eq:alpha1}.
    		
-   		\lstinputlisting[language=scala,caption={OrientationOrdering.scala},captionpos=b, label={lst:order}]{\listingsDirectory/OrientationOrdering.scala}
+   		\lstinputlisting[language=scala,caption={OrientationOrdering.scala},captionpos=b, label={lst:order}]{\listingsDirectory/OrientationOrdering.scala}\listingsource
    		\newpage
    		\lstinputlisting[language=scala,caption={ConvexHullAlgorithm.scala},captionpos=b]{\listingsDirectory/ConvexHullAlgorithm.scala}
+   		\listingsource
    		\newpage
    		\lstinputlisting[language=scala,caption={AlgorithmTest.scala},captionpos=b]{\listingsDirectory/AlgorithmTest.scala}
+   		\listingsource
    		\newpage
    		\section{Algorytm Grahama}
    		\lstinputlisting[language=scala,caption={Graham.scala},captionpos=b]{\listingsDirectory/Graham.scala}
+   		\mysource
    		\newpage
    		\lstinputlisting[language=scala,caption={PointsCycle.scala},captionpos=b]{\listingsDirectory/PointsCycle.scala}
+   		\listingsource
    		\newpage
    		\lstinputlisting[language=scala,caption={GrahamAlgorithmTest.scala},captionpos=b]{\listingsDirectory/GrahamAlgorithmTest.scala}
-   		
+   		\listingsource
    		\section{Algorytm Jarvisa}
    		Dzięki wykorzystaniu pattern matchingu dostępnego w Scali, możliwe jest przejrzyste zaimplementowanie algorytmu Jarvisa, który, jak widać jest dużo mniej skomplikowany od algorytmu Grahama. Mniejsze skomplikowanie implementacji wiąże się jednak z dużo większą złożonością obliczeniową.
         \lstinputlisting[language=scala,caption={Jarvis.scala},captionpos=b]{\listingsDirectory/Jarvis.scala}
+        \listingsource
         \lstinputlisting[language=scala,caption={JarvisAlgorithmTest.scala},captionpos=b]{\listingsDirectory/JarvisAlgorithmTest.scala}
+        \listingsource
     \chapter{Dynamiczna otoczka wypukła}
     	\section{Algorytm}
     	\section{Implementacja w języku Scala} 
 	\chapter{Podsumowanie} 
     \printbibliography[heading=bibintoc]
+	\listoffigures
+	\addcontentsline{toc}{chapter}{\listfigurename}
+	\lstlistoflistings
+	\addcontentsline{toc}{chapter}{\lstlistlistingname}
 \end{document}

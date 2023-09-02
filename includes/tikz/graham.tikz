@@ -1,4 +1,4 @@
-\begin{tikzpicture}[node distance=1.7cm] 
+\begin{tikzpicture}[node distance=1.4cm] 
 	\node (0,0) (start) {};
 	\path[ellipse_block = 
     		reference: start 
@@ -16,7 +16,8 @@
 				p_n
 			\right\} \subset \mathbb{R}^2$, dla każdego z punktów w zbiorze określone są funkcje:\\
 			 $x\left(p\right)$ (oznaczająca wartość odciętej punktu $p$)\\
-			 $y\left(p\right)$ (oznaczająca wartość rzędnej punktu $p$)
+			 $y\left(p\right)$ (oznaczająca wartość rzędnej punktu $p$)\\
+		\vspace{.8cm}
 		}
 	\node[below of = input_south] (centroid) {};
 	\block
