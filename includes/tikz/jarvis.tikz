@@ -1,0 +1,226 @@
+\begin{tikzpicture}[node distance=1.4cm] 
+	\node (0,0) (start) {};
+	\path[ellipse_block = 
+    		reference: start 
+    		text: START
+	];
+	\node[below of = start_block] (input) {};
+	\block
+		{input}
+		{Dane wejściowe:\\
+		zbiór punktów 
+			$P = \left\{
+				p_1,
+				p_2,
+				...,
+				p_n
+			\right\} \subset \mathbb{R}^2$, dla każdego z punktów w zbiorze określone są funkcje:\\
+			 $x\left(p\right)$ (oznaczająca wartość odciętej punktu $p$)\\
+			 $y\left(p\right)$ (oznaczająca wartość rzędnej punktu $p$)\\
+		\vspace{.8cm}
+		}
+	\node[below of = input_south] (first_point) {};
+	\block
+		{first_point}
+		{
+		Wyznaczyć pierwszy punkt $f$, będący punktem ze zbioru $P$ o jak największej rzędnej ze zbioru punktów o największych odciętych.\\
+		$f := p_i \Leftrightarrow p_i \in P$\\
+		$\wedge \ \forall _{p \in P} \  x \left(p_i \right) \geqslant x\left(p\right)$\\
+		$\wedge \  \forall _{p \in P \wedge x\left(p\right) = x\left(p_i \right)} \ y \left(p_i \right) \geqslant y\left(p\right) $
+		}
+
+
+
+	\node[below of = first_point_south] (sort) {};
+	\block
+		{sort}
+		{
+			Wyznaczyć punkt $e$ taki, że:\\ 
+			$x \left(e\right) :=  -\infty$\\
+			$y \left(e\right) := y \left(f\right)$
+		}
+	\node[below of = sort_south] (cykl) {};
+	\block
+		{cykl}
+		{
+			Z otrzymanego, uporządkowanego zbioru $P$ utworzyć listę pozwalającą na wyznaczenie następnika punktu $p$ w liście - poprzez zastosowanie funkcji $next\left(p\right)$ oraz znalezienie poprzednika punktu $p$ w liście poprzez zastosowanie funkcji $prev\left(p\right)$.\\
+	Funkcja $next$ dla ostatniego punktu w uporządkowanym zbiorze będzie wskazywała na pierwszy punkt tego zbioru, natomiast funkcja $prev$ dla pierwszego punktu uporządkowanego zbioru będzie wskazywała na ostatni punkt tego zbioru.
+		}
+	\node[below of =cykl_south] (punkts) {};
+	\block
+		{punkts}
+		{
+			Wyznacz punkt $s$ będący punktem o najmniejszej wartości odciętej ze zbioru punktów o najmniejszej wartości rzędnej ze zbioru $P$.
+		}
+		
+	\node[right of =start, node distance = 8 cm] (q) {};
+	\smallblock
+		{q}
+		{
+			$q:=s$
+		}
+	\node[below of =q] (isequal) {};
+	\chooseblock
+		{isequal}
+		{
+			\begin{small}
+			$next\left(q\right) \neq s$
+			\end{small}
+		}
+	\node[below of =isequal_south] (inside) {};
+	\chooseblock
+		{inside}
+		{
+			$next\left(q\right) \in \Delta\left(
+			 	O,
+			 	q,
+			 	next\left(
+			 		next\left(
+			 			q
+			 		\right)
+			 	\right)
+			 \right)$
+		}
+	\node[below of =inside_south] (remove) {};
+	\smallblock
+		{remove}
+		{
+			$next\left(q\right) := next\left(
+				next\left(
+					q
+				\right)
+			\right)$\\
+			$prev\left(next\left(q\right)\right) := q$
+			
+			
+		}
+	
+	\node[below of =remove_south] (qequalss) {};
+	\chooseblock
+		{qequalss}
+		{	
+		\begin{small}
+			$q\neq s$
+		\end{small}	
+		}
+	
+	\node[below of =qequalss_south] (prev) {};
+	\smallblock
+		{prev}
+		{	
+		$q:=prev\left(q\right)$
+		}
+	
+	\node[below of =prev_south] (next) {};
+	\smallblock
+		{next}
+		{	
+		$q:=next\left(q\right)$
+		}
+	
+	\node[below of =next_south] (output) {};
+	\block
+		{output}
+		{	
+			Wynikiem działania algorytmu jest lista zaczynająca się od punktu $s$ - zawiera ona uporządkowane wierzchołki otoczki wypukłej zbioru punktów $P$.
+		}
+	
+	\node[below of =output_south] (stop) {};
+	\path[ellipse_block = 
+    		reference: stop
+    		text: STOP
+	];
+	
+	\draw
+		[-arcs]
+		(start_block)--
+		(input_block);
+		
+	\draw
+		[-arcs]
+		(input_block)--
+		(first_point_block);
+	
+	\draw
+		[-arcs]
+		(first_point_block)--
+		(sort_block);
+	
+	\draw
+		[-arcs]
+		(sort_block)--
+		(cykl_block);
+	
+	\draw
+		[-arcs]
+		(cykl_block)--
+		(punkts_block);
+	
+	
+	\draw [-arcs] 
+		(punkts_block.east) --++
+		(.5,0) |-
+		(q_block.west);
+	
+	\draw [-arcs] 
+		(q_block) -- node (centerq) {}
+		(isequal_block);
+		
+	\draw [-arcs] 
+		(isequal_block) --
+		(inside_block);
+	
+	\draw [-arcs] 
+		(inside_block) --
+		(remove_block);
+	
+	\draw [-arcs] 
+		(remove_block) --
+		(qequalss_block);
+		
+	\draw [-arcs] 
+		(qequalss_block) --
+		(prev_block);
+	
+	\draw [-arcs] 
+		(isequal_block.west) --++
+		(-2,0) |-
+		(output_block.west);
+	
+	\draw [-arcs] 
+		(inside_block.west) --++
+		(-1.07,0) |-
+		(next_block.west);
+		
+	\draw [-arcs] 
+		(inside_block.west) --++
+		(-1.07,0) |-
+		(next_block.west);
+	
+	
+		
+	
+	
+	\draw [-arcs]
+		(prev_block.south) --++
+		(0,-1) node (prev_below) {};
+		
+	\draw [-arcs]
+		(qequalss_block.west) --++
+		(-1.95,0)  |-
+		(prev_below.center) --++
+		(3.3,0)
+		node (prev_right) {};
+	
+	\draw [-arcs]
+		(next_block.east) -|
+		(prev_right.center) |-
+		(centerq.center);
+	
+	\draw [-arcs]
+		(output_block) --
+		(stop_block);
+	
+	
+	
+\end{tikzpicture}
