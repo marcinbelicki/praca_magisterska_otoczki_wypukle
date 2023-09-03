@@ -1,0 +1,142 @@
+\begin{tikzpicture}[node distance=1.4cm] 
+	\node (0,0) (start) {};
+	\path[ellipse_block = 
+    		reference: start 
+    		text: START
+	];
+	\node[below of = start_block] (input) {};
+	\block
+		{input}
+		{Dane wejściowe:\\
+		zbiór punktów 
+			$P = \left\{
+				p_1,
+				p_2,
+				...,
+				p_n
+			\right\} \subset \mathbb{R}^2$, dla każdego z punktów w zbiorze określone są funkcje:\\
+			 $x\left(p\right)$ (oznaczająca wartość odciętej punktu $p$)\\
+			 $y\left(p\right)$ (oznaczająca wartość rzędnej punktu $p$)\\
+		\vspace{.8cm}
+		}
+	\node[below of = input_south] (first_point) {};
+	\block
+		{first_point}
+		{
+		Wyznaczyć pierwszy punkt $f$, będący punktem ze zbioru $P$ o jak największej rzędnej ze zbioru punktów o największych odciętych. Będzie on też pierwszym punktem należącym do otoczki wypukłej $h_1$\\
+		$f := p_i \Leftrightarrow p_i \in P$\\
+		$\wedge \ \forall _{p \in P} \  x \left(p_i \right) \geqslant x\left(p\right)$\\
+		$\wedge \  \forall _{p \in P \wedge x\left(p\right) = x\left(p_i \right)} \ y \left(p_i \right) \geqslant y\left(p\right) $\\
+		$h_1 := f$
+		}
+
+
+	\node[below of = first_point_south] (sort) {};
+	\block
+		{sort}
+		{
+			Wyznaczyć punkt $e$ taki, że:\\ 
+			$x \left(e\right) :=  -\infty$\\
+			$y \left(e\right) := y \left(f\right)$
+		}
+
+	\node[below of = sort_south] (cykl) {};
+	\block
+		{cykl}
+		{
+		Wyznaczyć taki punkt $g$ ze zbioru punktów $P$, dla którego kąt $\angle efg$ będzie jak największy:\\
+		$g := p_i \Leftrightarrow p_i \in P$\\
+		$ \wedge \ \forall_{p \in P \wedge p \neq f} \ \angle efp_i \geqslant \angle efp$
+		}
+
+
+	\node[below of =cykl_south] (punkts) {};
+	\chooseblock
+		{punkts}
+		{
+			$g \neq h_1$
+		}
+
+	\node[below of = punkts_south] (new1) {};
+	\block
+		{new1}
+		{
+			Przypsiujemy następnik punktu $f$ jako punkt $g$ oraz przypisujemy punktowi $f$ punkt $g$:\\
+			$next\left(f\right) := g$\\
+			$f := g$
+		}
+
+	\node[left of = punkts_block, node distance = 6 cm] (q) {};
+	\centerblock
+		{q}
+		{
+		    Wynikiem działania algorytmu jest lista zaczynająca się od punktu $h_1$ - a pozostałe elementy są kolejnymi następnikami tego punktu.
+		}
+		
+	\node[below of = q_south] (stop) {};	
+	\path[ellipse_block = 
+    		reference: stop
+    		text: STOP
+	];
+
+	\blocklabel{input_block}{1}
+	\blocklabel{first_point_block}{2}
+	\blocklabel{sort_block}{3}
+	\blocklabel{cykl_block}{4}
+	\chooseblocklabel{punkts_block}{5}
+	\blocklabel{new1_block}{6}
+	\blocklabel{q_block}{7}
+	
+	\draw
+		[-arcs]
+		(start_block)--
+		(input_block);
+		
+	\draw
+		[-arcs]
+		(input_block)--
+		(first_point_block);
+
+	
+	\draw
+		[-arcs]
+		(first_point_block)--
+		(sort_block);
+	
+	\draw
+		[-arcs]
+		(sort_block)--
+		node (middle) {}
+		(cykl_block);
+	
+	\draw
+		[-arcs]
+		(cykl_block)--
+		(punkts_block);
+	
+	\draw
+		[-arcs]
+		(punkts_block)--
+		(new1_block);
+
+	\draw
+		[-arcs]
+		(new1_block.east)--++
+		(1, 0) |-
+		(middle.center);
+
+	\draw
+		[-arcs]
+		(punkts_block)--
+		(q_block);
+
+	\draw
+		[-arcs]
+		(q_block)--
+		(stop_block);
+	
+	
+	
+	
+	
+\end{tikzpicture}

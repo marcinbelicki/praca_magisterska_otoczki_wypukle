@@ -209,12 +209,12 @@ dr inż. Arkadiusz Mirakowski
     \input{\oneDirectory/main}
     
     Z powyższych obliczeń wynika, że we wszystkich przedziałach z zależności
-    \ref{eq:xytotheta1}, 
+     \ref{eq:xytotheta1}, 
      \ref{eq:xytotheta2}, 
      \ref{eq:xytotheta3} oraz
      \ref{eq:xytotheta4} funkcja $\gamma\left(\theta\right)$ ma dodatnią pochodną, a tym samym jest rosnąca we wszystkich przedziałach, oraz każda z wartości osiąganych w przedziale jest większa od każdej wartości z poprzedniego przedziału, a tym samym funkcja $\alpha\left(p\right)$ spełnia warunki \ref{eq:condition1} i \ref{eq:condition2}.
      
-     Postać funkcji $\gamma\left(\theta\right)$ może być opisana wzorem \ref{eq:gammaeq} a wykres jej przebiegu, przedstawiony na rysunku \ref{fig:gamma} wyraźnie potwierdza jej rosnącą monotoniczność we wszystkich przedziałach.
+     Postać funkcji $\gamma\left(\theta\right)$ może być opisana wzorem \ref{eq:gammaeq}, a wykres jej przebiegu, przedstawiony na rysunku \ref{fig:gamma} wyraźnie potwierdza jej rosnącą monotoniczność we wszystkich przedziałach.
         \begin{align}\label{eq:gammaeq}
         	\gamma\left(
         		\theta
@@ -289,9 +289,44 @@ dr inż. Arkadiusz Mirakowski
     			\caption{Wykres funkcji $\gamma\left(\theta\right)$}\label{fig:gamma}
     	\end{center}
     	\mysource
-    	\end{figure}\vspace{-8 mm}\\
+    	\end{figure}\vspace{-8 mm}
        
-              
+Podczas wyznaczania otoczki wypukłej istotną i potrzebną funkcją w większości przypadków jest funkcja wyznaczania zorientowania trzech kolejnych punktów \cite{convexhullsimplepolygon, orient}.        Funkcja ta została przedstawiano za pomocą wzoru \ref{eq:orient}.\\
+\begin{align}\label{eq:orient}
+o\left(a,b, c\right) = \mathrm{sgn} \left|
+\begin{matrix}
+1 & x\left(a\right) & y\left(a\right)\\
+1 & x\left(b\right) & y\left(b\right)\\
+1 & x\left(c\right) & y\left(c\right)
+\end{matrix}
+\right|
+\end{align}
+Gdzie poszczególne symbole oznaczają:\\
+    	\begin{tabular}{rcl}
+    	$a, b, c$ & -- & trzy kolejne punkty na płaszczyźnie
+    	\end{tabular}\\
+Wyniki funkcji $o\left(a,b, c\right)$ należy interpretować w następujący sposób. W przypadku, kiedy $o\left(a,b, c\right) = -1$, punkty $a,b,c$ zorientowane są zgodnie z ruchem wskazówek zegara (Rysunek \ref{fig:clockwise}). W przypadku, kiedy $o\left(a,b, c\right) = 0$ punkty $a,b,c$ leżą na tej samej prostej (Rysunek \ref{fig:colinear}). W przypadku $o\left(a,b, c\right) = 0$ punkty $a,b,c$ są zwrócone przeciwnie do ruchu wskazówek zegara (Rysunek \ref{fig:counterclockwise}).
+        \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/clockwise.tikz}
+    			\caption{Punkty $a, b, c$ zwrócone zgodnie z ruchem wskazówek zegara}						\label{fig:clockwise}	
+    		\end{center}
+    	\mysource
+    	\end{figure}\vspace{-8 mm}\\
+    	        \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/colinear.tikz}
+    			\caption{Punkty $a, b, c$ ułożone współliniowo}						\label{fig:colinear}	
+    		\end{center}
+    	\mysource
+    	\end{figure}\vspace{-8 mm}\\
+    	 \begin{figure}[h!]
+        	\begin{center}
+    			\input{\tikzDirectory/counterclockwise.tikz}
+    			\caption{Punkty $a, b, c$ ułożone przeciwnie do ruchu wskazówek zegara}						\label{fig:counterclockwise}	
+    		\end{center}
+    	\mysource
+    	\end{figure}\vspace{-8 mm}\\
         \subsection{Algorytm Grahama}
         Jednym z ważniejszych algorytmów służących wyznaczaniu otoczki wypukłej zbioru punktów na płaszczyźnie jest algorytm Grahama.
         \newpage
@@ -307,13 +342,20 @@ dr inż. Arkadiusz Mirakowski
         \begin{figure}[h!]
         		\begin{center}
     			\input{\tikzDirectory/jarvis.tikz}
-    			\caption{Algorytm Jarvisa}\label{fig:graham}
+    			\caption{Algorytm Jarvisa}\label{fig:jarvis}
     			\end{center}
     			\mysource
     	\end{figure}
         
         
         \section{Otoczka wypukła wielokąta prostego}
+             \begin{figure}[h!]
+        		\begin{center}
+    			\input{\tikzDirectory/simple_polygon.tikz}
+    			\caption{Algorytm wyznaczania otoczki wypukłej wielokąta prostego}\label{fig:simple}
+    			\end{center}
+    			\mysource
+    			\end{figure}
         \cite{convexhullsimplepolygon}
         \section{Redukcja zbioru punktów do wielokąta prostego}
     \chapter{Zastosowania} 

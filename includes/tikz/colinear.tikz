@@ -1,0 +1,6 @@
+\begin{tikzpicture}
+    \path[point = reference: a x: 0 y: 0 label: $a$ color: black];
+    \path[point = reference: b x: 1 y: 1 label: $b$ color: black];
+    \path[point = reference: c x: 2 y: 2 label: $c$ color: black];
+    \draw[-arcs] (a) -- (b) -- (c);
+\end{tikzpicture} 
