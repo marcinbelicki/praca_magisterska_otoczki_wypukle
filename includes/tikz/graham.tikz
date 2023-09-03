@@ -48,7 +48,7 @@
 			Z otrzymanego, uporządkowanego zbioru $P$ utworzyć listę pozwalającą na wyznaczenie następnika punktu $p$ w liście - poprzez zastosowanie funkcji $next\left(p\right)$ oraz znalezienie poprzednika punktu $p$ w liście poprzez zastosowanie funkcji $prev\left(p\right)$.\\
 	Funkcja $next$ dla ostatniego punktu w uporządkowanym zbiorze będzie wskazywała na pierwszy punkt tego zbioru, natomiast funkcja $prev$ dla pierwszego punktu uporządkowanego zbioru będzie wskazywała na ostatni punkt tego zbioru.
 		}
-	\node[below of =cykl_south] (punkts) {};
+	\node[below of = cykl_south] (punkts) {};
 	\block
 		{punkts}
 		{
@@ -222,7 +222,20 @@
 	\draw [-arcs]
 		(output_block) --
 		(stop_block);
-	
-	
+
+		
+	\blocklabel{input_block}{1}
+	\blocklabel{centroid_block}{2}
+	\blocklabel{cykl_block}{3}
+	\blocklabel{punkts_block}{4}
+	\southblocklabel{q_block}{5}
+	\chooseblocklabel{isequal_block}{6}
+	\chooseblocklabel{inside_block}{7}
+	\blocklabel{remove_block}{8}
+	\chooseblocklabel{qequalss_block}{9}
+	\blocklabel{prev_block}{10}
+	\southblocklabel{next_block}{11}
+	\blocklabel{output_block}{12}
+
 	
 \end{tikzpicture}

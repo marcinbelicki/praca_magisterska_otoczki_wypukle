@@ -31,6 +31,23 @@
  
 }
 
+\newcommand{\blocklabel}[2]{
+
+  \node at (#1.north west)  [label={[label distance = -0.3 cm] south west:\small{#2}}] {} ;
+}
+
+\newcommand{\southblocklabel}[2]{
+
+  \node at (#1.south west)  [label={[label distance = -0.3 cm] south west:\small{#2}}] {} ;
+}
+ 
+ 
+\newcommand{\chooseblocklabel}[2]{
+
+  \node at (#1.north west)  [label={[label distance = -0.3 cm] north west:\small{#2}}] {} ;
+}
+ 
+
 \newcommand{\smallblock}[2]{
 
   \node[rectangle_block,below] at (#1.north) (#1_block) {

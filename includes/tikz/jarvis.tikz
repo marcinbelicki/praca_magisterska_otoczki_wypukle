@@ -66,7 +66,7 @@
 			$f := g$
 		}
 
-	\node[right of = punkts_block, node distance = 6 cm] (q) {};
+	\node[left of = punkts_block, node distance = 6 cm] (q) {};
 	\centerblock
 		{q}
 		{
@@ -78,6 +78,14 @@
     		reference: stop
     		text: STOP
 	];
+
+	\blocklabel{input_block}{1}
+	\blocklabel{first_point_block}{2}
+	\blocklabel{sort_block}{3}
+	\blocklabel{cykl_block}{4}
+	\chooseblocklabel{punkts_block}{5}
+	\blocklabel{new1_block}{6}
+	\blocklabel{q_block}{7}
 	
 	\draw
 		[-arcs]
@@ -88,6 +96,7 @@
 		[-arcs]
 		(input_block)--
 		(first_point_block);
+
 	
 	\draw
 		[-arcs]
@@ -112,13 +121,13 @@
 
 	\draw
 		[-arcs]
-		(new1_block.west)--++
-		(-1, 0) |-
+		(new1_block.east)--++
+		(1, 0) |-
 		(middle.center);
 
 	\draw
 		[-arcs]
-		(punkts_block.east)--
+		(punkts_block)--
 		(q_block);
 
 	\draw
