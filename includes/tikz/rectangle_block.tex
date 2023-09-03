@@ -17,6 +17,20 @@
  
 }
 
+\newcommand{\centerblock}[2]{
+
+  \node[rectangle_block] at (#1.center) (#1_block) {
+  	\begin{minipage}{5.2cm}\begin{tiny}\begin{flushleft}\begin{spacing}{1.5}
+			#2
+	\end{spacing}\end{flushleft}\end{tiny}\vspace{-8mm}\end{minipage}
+  };
+  
+  
+  
+  \node at (#1_block.south) (#1_south) {};
+ 
+}
+
 \newcommand{\smallblock}[2]{
 
   \node[rectangle_block,below] at (#1.north) (#1_block) {
