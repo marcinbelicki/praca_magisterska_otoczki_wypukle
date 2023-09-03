@@ -226,16 +226,17 @@
 		
 	\blocklabel{input_block}{1}
 	\blocklabel{centroid_block}{2}
-	\blocklabel{cykl_block}{3}
-	\blocklabel{punkts_block}{4}
-	\southblocklabel{q_block}{5}
-	\chooseblocklabel{isequal_block}{6}
-	\chooseblocklabel{inside_block}{7}
-	\blocklabel{remove_block}{8}
-	\chooseblocklabel{qequalss_block}{9}
-	\blocklabel{prev_block}{10}
-	\southblocklabel{next_block}{11}
-	\blocklabel{output_block}{12}
+	\blocklabel{sort_block}{3}
+	\blocklabel{cykl_block}{4}
+	\blocklabel{punkts_block}{5}
+	\southblocklabel{q_block}{6}
+	\chooseblocklabel{isequal_block}{7}
+	\chooseblocklabel{inside_block}{8}
+	\blocklabel{remove_block}{9}
+	\chooseblocklabel{qequalss_block}{10}
+	\blocklabel{prev_block}{11}
+	\southblocklabel{next_block}{12}
+	\blocklabel{output_block}{13}
 
 	
 \end{tikzpicture}
