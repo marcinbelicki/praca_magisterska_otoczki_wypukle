@@ -54,7 +54,9 @@
 	\chooseblock
 		{punkts}
 		{
+			\begin{small}
 			$g \neq h_1$
+			\end{small}
 		}
 
 	\node[below of = punkts_south] (new1) {};
