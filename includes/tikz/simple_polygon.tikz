@@ -14,20 +14,19 @@
 				p_2,
 				...,
 				p_n
-			\right\} \subset \mathbb{R}^2$, dla każdego z punktów w zbiorze określone są funkcje:\\
+			\right\} \subset \mathbb{R}^2$, gdzie punkty te muszą stanowić wycinek wielokąta $W$: $L\left(W\right)$. Dla każdego z punktów w zbiorze określone są funkcje:\\
 			 $x\left(p\right)$ (oznaczająca wartość odciętej punktu $p$)\\
 			 $y\left(p\right)$ (oznaczająca wartość rzędnej punktu $p$)\\
+			 $next\left(p\right)$ (oznacza następnik punktu $p$ w zbiorze $P$; $next\left(p_n\right) = p_1$)\\
+			 $prev\left(p\right)$ (oznacza poprzednik punktu $p$ w zbiorze $P$; $prev\left(p_1\right) = p_n$)
 		\vspace{.8cm}
 		}
 	\node[below of = input_south] (first_point) {};
 	\block
 		{first_point}
 		{
-		Wyznaczyć pierwszy punkt $f$, będący punktem ze zbioru $P$ o jak największej rzędnej ze zbioru punktów o największych odciętych. Będzie on też pierwszym punktem należącym do otoczki wypukłej $h_1$\\
-		$f := p_i \Leftrightarrow p_i \in P$\\
-		$\wedge \ \forall _{p \in P} \  x \left(p_i \right) \geqslant x\left(p\right)$\\
-		$\wedge \  \forall _{p \in P \wedge x\left(p\right) = x\left(p_i \right)} \ y \left(p_i \right) \geqslant y\left(p\right) $\\
-		$h_1 := f$
+		Wyznaczyć pierwszy punkt $f$ według wzoru:
+		$f:= p_n$
 		}
 
 
